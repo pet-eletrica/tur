@@ -1,4 +1,0 @@
-".\Objects\lE1.obj",
-".\Objects\hal_delay.obj" 
-TO ".\Objects\lE1" 
-PRINT(".\Listings\lE1.m51") RAMSIZE(256) 
