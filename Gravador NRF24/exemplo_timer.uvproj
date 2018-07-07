@@ -312,7 +312,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>D:\Programas\Nordic Semiconductor\nRFgo SDK 2.3.0.10040\source_code\compiler\common;..\..\nrf24le1\nRF24LE1\libraries\nrf\source_code\hal\nrf24le1;D:\Programas\Nordic Semiconductor\nRFgo SDK 2.3.0.10040\nrf</IncludePath>
+              <IncludePath>D:\Programas\Nordic Semiconductor\nRFgo SDK 2.3.0.10040\source_code\compiler\common;..\..\nrf24le1\nRF24LE1\libraries\nrf\source_code\hal\nrf24le1;D:\Programas\Nordic Semiconductor\nRFgo SDK 2.3.0.10040\nrf;D:\Programas\Nordic Semiconductor\nRFgo SDK 2.3.0.10040\source_code\hal</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -378,6 +378,13 @@
         </Group>
         <Group>
           <GroupName>hal</GroupName>
+          <Files>
+            <File>
+              <FileName>hal_delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>D:\Programas\Nordic Semiconductor\nRFgo SDK 2.3.0.10040\source_code\hal\hal_delay.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

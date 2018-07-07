@@ -5,6 +5,7 @@
 #include <timer0.h>
 
 #define LED P03
+
 int cont=0;
 
 void ISR(void) interrupt INTERRUPT_TMR0

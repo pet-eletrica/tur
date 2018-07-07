@@ -4,7 +4,7 @@
 
 #define LED P03 
 
-EXT_INT0_ISR()  { interrupt
+EXT_INT0_ISR()  { 
 LED = !LED;
 }
 void main()
