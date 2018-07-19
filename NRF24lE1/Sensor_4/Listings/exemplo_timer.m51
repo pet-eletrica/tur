@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    07/09/2018  14:01:00  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    07/18/2018  22:50:01  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -47,32 +47,32 @@ LINK MAP OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
             CODE    000EH     0034H     UNIT         ?PR?_TX_MODE_NOACK?EXEMPLO_TIMER
                     0042H     0009H                  *** GAP ***
             CODE    004BH     0003H     ABSOLUTE     
-            CODE    004EH     00BDH     UNIT         ?PR?AVALIA_COMANDO?EXEMPLO_TIMER
-            CODE    010BH     00A5H     UNIT         ?PR?_RF_INIT?EXEMPLO_TIMER
-            CODE    01B0H     00A2H     UNIT         ?C?LIB_CODE
-            CODE    0252H     008CH     UNIT         ?C_C51STARTUP
-            CODE    02DEH     0085H     UNIT         ?PR?RF_IRQ?EXEMPLO_TIMER
-            CODE    0363H     0068H     UNIT         ?PR?SETUP?EXEMPLO_TIMER
-            CODE    03CBH     0032H     UNIT         ?PR?_SPI_WRITE_BUF?EXEMPLO_TIMER
-            CODE    03FDH     0031H     UNIT         ?PR?_SPI_READ_BUF?EXEMPLO_TIMER
-            CODE    042EH     002FH     UNIT         ?PR?MAIN?EXEMPLO_TIMER
-            CODE    045DH     0029H     UNIT         ?PR?TMR0_IRQ?EXEMPLO_TIMER
-            CODE    0486H     0022H     UNIT         ?C_INITSEG
-            CODE    04A8H     001DH     UNIT         ?PR?_SETUP_T0_ELAPSED_US?EXEMPLO_TIMER
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 2
+            CODE    004EH     00ADH     UNIT         ?PR?AVALIA_COMANDO?EXEMPLO_TIMER
+            CODE    00FBH     00A5H     UNIT         ?PR?_RF_INIT?EXEMPLO_TIMER
+            CODE    01A0H     00A2H     UNIT         ?C?LIB_CODE
+            CODE    0242H     008CH     UNIT         ?C_C51STARTUP
+            CODE    02CEH     0085H     UNIT         ?PR?RF_IRQ?EXEMPLO_TIMER
+            CODE    0353H     0056H     UNIT         ?PR?SETUP?EXEMPLO_TIMER
+            CODE    03A9H     0032H     UNIT         ?PR?_SPI_WRITE_BUF?EXEMPLO_TIMER
+            CODE    03DBH     0031H     UNIT         ?PR?_SPI_READ_BUF?EXEMPLO_TIMER
+            CODE    040CH     002FH     UNIT         ?PR?MAIN?EXEMPLO_TIMER
+            CODE    043BH     0029H     UNIT         ?PR?TMR0_IRQ?EXEMPLO_TIMER
+            CODE    0464H     0022H     UNIT         ?C_INITSEG
+            CODE    0486H     001DH     UNIT         ?PR?_SETUP_T0_ELAPSED_US?EXEMPLO_TIMER
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 2
 
 
-            CODE    04C5H     001AH     UNIT         ?PR?_DELAY_US?HAL_DELAY
-            CODE    04DFH     0014H     UNIT         ?PR?_DELAY_MS?HAL_DELAY
-            CODE    04F3H     0013H     UNIT         ?PR?_SPI_RW_REG?EXEMPLO_TIMER
-            CODE    0506H     0012H     UNIT         ?PR?_SETUP_T0_ELAPSED_MS?EXEMPLO_TIMER
-            CODE    0518H     0011H     UNIT         ?PR?RX_MODE?EXEMPLO_TIMER
-            CODE    0529H     0010H     UNIT         ?PR?_SETUP_T0_TICKS?EXEMPLO_TIMER
-            CODE    0539H     0010H     UNIT         ?PR?START_T0?EXEMPLO_TIMER
-            CODE    0549H     0010H     UNIT         ?PR?STOP_T0?EXEMPLO_TIMER
-            CODE    0559H     000EH     UNIT         ?PR?PREPARE_T0?EXEMPLO_TIMER
-            CODE    0567H     000DH     UNIT         ?PR?_SPI_READ?EXEMPLO_TIMER
-            CODE    0574H     000AH     UNIT         ?PR?_SPI_RW?EXEMPLO_TIMER
+            CODE    04A3H     001AH     UNIT         ?PR?_DELAY_US?HAL_DELAY
+            CODE    04BDH     0014H     UNIT         ?PR?_DELAY_MS?HAL_DELAY
+            CODE    04D1H     0013H     UNIT         ?PR?_SPI_RW_REG?EXEMPLO_TIMER
+            CODE    04E4H     0012H     UNIT         ?PR?_SETUP_T0_ELAPSED_MS?EXEMPLO_TIMER
+            CODE    04F6H     0011H     UNIT         ?PR?RX_MODE?EXEMPLO_TIMER
+            CODE    0507H     0010H     UNIT         ?PR?_SETUP_T0_TICKS?EXEMPLO_TIMER
+            CODE    0517H     0010H     UNIT         ?PR?START_T0?EXEMPLO_TIMER
+            CODE    0527H     0010H     UNIT         ?PR?STOP_T0?EXEMPLO_TIMER
+            CODE    0537H     000EH     UNIT         ?PR?PREPARE_T0?EXEMPLO_TIMER
+            CODE    0545H     000DH     UNIT         ?PR?_SPI_READ?EXEMPLO_TIMER
+            CODE    0552H     000AH     UNIT         ?PR?_SPI_RW?EXEMPLO_TIMER
 
 
 
@@ -96,7 +96,6 @@ SEGMENT                                          DATA_GROUP
   +--> ?PR?_SETUP_T0_TICKS?EXEMPLO_TIMER
   +--> ?PR?PREPARE_T0?EXEMPLO_TIMER
   +--> ?PR?_DELAY_MS?HAL_DELAY
-  +--> ?PR?_TX_MODE_NOACK?EXEMPLO_TIMER
 
 ?PR?_RF_INIT?EXEMPLO_TIMER                     0008H    0009H
   +--> ?PR?_SPI_WRITE_BUF?EXEMPLO_TIMER
@@ -115,18 +114,18 @@ SEGMENT                                          DATA_GROUP
 ?PR?_DELAY_MS?HAL_DELAY                        -----    -----
   +--> ?PR?_DELAY_US?HAL_DELAY
 
-?PR?_TX_MODE_NOACK?EXEMPLO_TIMER               0008H    0002H
-  +--> ?PR?_SPI_RW_REG?EXEMPLO_TIMER
-  +--> ?CO?EXEMPLO_TIMER
-  +--> ?PR?_SPI_WRITE_BUF?EXEMPLO_TIMER
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 3
-
-
-  +--> ?PR?RX_MODE?EXEMPLO_TIMER
-
 ?PR?AVALIA_COMANDO?EXEMPLO_TIMER               -----    -----
   +--> ?PR?_DELAY_MS?HAL_DELAY
   +--> ?PR?_TX_MODE_NOACK?EXEMPLO_TIMER
+
+?PR?_TX_MODE_NOACK?EXEMPLO_TIMER               0008H    0002H
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 3
+
+
+  +--> ?PR?_SPI_RW_REG?EXEMPLO_TIMER
+  +--> ?CO?EXEMPLO_TIMER
+  +--> ?PR?_SPI_WRITE_BUF?EXEMPLO_TIMER
+  +--> ?PR?RX_MODE?EXEMPLO_TIMER
 
 *** NEW ROOT ***************************************************
 
@@ -149,7 +148,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:0252H         SEGMENT       ?C_C51STARTUP
+  C:0242H         SEGMENT       ?C_C51STARTUP
   I:002DH         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
@@ -159,7 +158,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:0255H         SYMBOL        IDATALOOP
+  C:0245H         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -168,21 +167,21 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:0252H         SYMBOL        STARTUP1
+  C:0242H         SYMBOL        STARTUP1
   N:0000H         SYMBOL        XBPSTACK
   N:0000H         SYMBOL        XBPSTACKTOP
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:0252H         LINE#         133
-  C:0254H         LINE#         134
-  C:0255H         LINE#         135
-  C:0256H         LINE#         136
-  C:0258H         LINE#         185
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 4
+  C:0242H         LINE#         133
+  C:0244H         LINE#         134
+  C:0245H         LINE#         135
+  C:0246H         LINE#         136
+  C:0248H         LINE#         185
+  C:024BH         LINE#         196
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 4
 
 
-  C:025BH         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        EXEMPLO_TIMER
@@ -197,25 +196,26 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   X:0020H         PUBLIC        tx_buf
   D:00A8H         PUBLIC        IEN0
   D:00B8H         PUBLIC        IEN1
-  C:0518H         PUBLIC        RX_Mode
-  C:0539H         PUBLIC        start_T0
+  C:04F6H         PUBLIC        RX_Mode
+  C:0517H         PUBLIC        start_T0
   B:00B8H.1       PUBLIC        RF
   D:00E7H         PUBLIC        SPIRDAT
-  C:0529H         PUBLIC        _setup_T0_ticks
+  C:0507H         PUBLIC        _setup_T0_ticks
   B:0021H.0       PUBLIC        newPayload
-  C:0506H         PUBLIC        _setup_T0_elapsed_ms
+  C:04E4H         PUBLIC        _setup_T0_elapsed_ms
   B:0020H.6       PUBLIC        RX_DR
   B:00E8H.0       PUBLIC        RFCE
   B:0020H.5       PUBLIC        TX_DS
-  C:04A8H         PUBLIC        _setup_T0_elapsed_us
-  C:042EH         PUBLIC        main
-  C:0549H         PUBLIC        stop_T0
+  C:0486H         PUBLIC        _setup_T0_elapsed_us
+  C:040CH         PUBLIC        main
+  C:0527H         PUBLIC        stop_T0
   D:0024H         PUBLIC        timer_count
   B:0080H.3       PUBLIC        P03
-  C:0363H         PUBLIC        setup
+  C:0353H         PUBLIC        setup
   B:0090H.4       PUBLIC        P14
   D:0089H         PUBLIC        TMOD
   D:0088H         PUBLIC        TCON
+  B:0080H.6       PUBLIC        P06
   C:004EH         PUBLIC        avalia_comando
   C:0008H         PUBLIC        run_T0
   B:00E8H.2       PUBLIC        RFCKEN
@@ -223,23 +223,23 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   D:0026H         PUBLIC        btn_passou
   D:0020H         PUBLIC        sta
   B:00A8H.1       PUBLIC        ET0
-  C:03FDH         PUBLIC        _SPI_Read_Buf
-  C:0567H         PUBLIC        _SPI_Read
+  C:03DBH         PUBLIC        _SPI_Read_Buf
+  C:0545H         PUBLIC        _SPI_Read
   D:008CH         PUBLIC        TH0
   D:008AH         PUBLIC        TL0
   B:0088H.4       PUBLIC        TR0
-  C:0559H         PUBLIC        prepare_T0
+  C:0537H         PUBLIC        prepare_T0
   D:0027H         PUBLIC        tempo1
-  C:03CBH         PUBLIC        _SPI_Write_Buf
+  C:03A9H         PUBLIC        _SPI_Write_Buf
   D:0029H         PUBLIC        NBT0H
   D:0093H         PUBLIC        P0DIR
   D:002AH         PUBLIC        NBT0L
   D:0094H         PUBLIC        P1DIR
   C:000EH         PUBLIC        _TX_Mode_NOACK
   D:0098H         PUBLIC        S0CON
-  C:02DEH         PUBLIC        RF_IRQ
+  C:02CEH         PUBLIC        RF_IRQ
   D:00D8H         PUBLIC        ADCON
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 5
 
 
   D:002BH         PUBLIC        timer_elapsed
@@ -247,11 +247,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   D:002CH         PUBLIC        i
   D:00F8H         PUBLIC        FSR
   B:0020H.4       PUBLIC        MAX_RT
-  C:010BH         PUBLIC        _rf_init
-  C:045DH         PUBLIC        TMR0_IRQ
+  C:00FBH         PUBLIC        _rf_init
+  C:043BH         PUBLIC        TMR0_IRQ
   X:0040H         PUBLIC        payloadWidth
-  C:04F3H         PUBLIC        _SPI_RW_Reg
-  C:0574H         PUBLIC        _SPI_RW
+  C:04D1H         PUBLIC        _SPI_RW_Reg
+  C:0552H         PUBLIC        _SPI_RW
   D:00E8H         PUBLIC        RFCON
   D:00D0H         PUBLIC        PSW
   D:00C0H         PUBLIC        IRCON
@@ -259,11 +259,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   D:00E6H         PUBLIC        SPIRSTAT
   -------         PROC          _SPI_RW
   D:0007H         SYMBOL        value
-  C:0574H         LINE#         127
-  C:0574H         LINE#         128
-  C:0576H         LINE#         130
-  C:057BH         LINE#         132
-  C:057DH         LINE#         133
+  C:0552H         LINE#         127
+  C:0552H         LINE#         128
+  C:0554H         LINE#         130
+  C:0559H         LINE#         132
+  C:055BH         LINE#         133
   -------         ENDPROC       _SPI_RW
   -------         PROC          _SPI_RW_REG
   D:0007H         SYMBOL        reg
@@ -271,26 +271,26 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   -------         DO            
   D:0005H         SYMBOL        status
   -------         ENDDO         
-  C:04F3H         LINE#         142
-  C:04F5H         LINE#         145
-  C:04F7H         LINE#         146
-  C:04FCH         LINE#         147
-  C:0501H         LINE#         148
-  C:0503H         LINE#         150
-  C:0505H         LINE#         151
+  C:04D1H         LINE#         142
+  C:04D3H         LINE#         145
+  C:04D5H         LINE#         146
+  C:04DAH         LINE#         147
+  C:04DFH         LINE#         148
+  C:04E1H         LINE#         150
+  C:04E3H         LINE#         151
   -------         ENDPROC       _SPI_RW_REG
   -------         PROC          _SPI_READ
   D:0007H         SYMBOL        reg
   -------         DO            
   D:0007H         SYMBOL        reg_val
   -------         ENDDO         
-  C:0567H         LINE#         159
-  C:0567H         LINE#         162
-  C:0569H         LINE#         163
-  C:056CH         LINE#         164
-  C:0571H         LINE#         165
-  C:0573H         LINE#         167
-  C:0573H         LINE#         168
+  C:0545H         LINE#         159
+  C:0545H         LINE#         162
+  C:0547H         LINE#         163
+  C:054AH         LINE#         164
+  C:054FH         LINE#         165
+  C:0551H         LINE#         167
+  C:0551H         LINE#         168
   -------         ENDPROC       _SPI_READ
   -------         PROC          _SPI_READ_BUF
   D:0007H         SYMBOL        reg
@@ -299,18 +299,18 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   -------         DO            
   D:0006H         SYMBOL        status
   D:0005H         SYMBOL        byte_ctr
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 6
 
 
   -------         ENDDO         
-  C:03FDH         LINE#         177
-  C:0403H         LINE#         180
-  C:0405H         LINE#         181
-  C:040AH         LINE#         183
-  C:0412H         LINE#         184
-  C:0429H         LINE#         186
-  C:042BH         LINE#         188
-  C:042DH         LINE#         189
+  C:03DBH         LINE#         177
+  C:03E1H         LINE#         180
+  C:03E3H         LINE#         181
+  C:03E8H         LINE#         183
+  C:03F0H         LINE#         184
+  C:0407H         LINE#         186
+  C:0409H         LINE#         188
+  C:040BH         LINE#         189
   -------         ENDPROC       _SPI_READ_BUF
   -------         PROC          _SPI_WRITE_BUF
   D:0007H         SYMBOL        reg
@@ -320,23 +320,23 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   D:0006H         SYMBOL        status
   D:0005H         SYMBOL        byte_ctr
   -------         ENDDO         
-  C:03CBH         LINE#         199
-  C:03D1H         LINE#         202
-  C:03D3H         LINE#         203
-  C:03D8H         LINE#         204
-  C:03E0H         LINE#         205
-  C:03F8H         LINE#         206
-  C:03FAH         LINE#         207
-  C:03FCH         LINE#         208
+  C:03A9H         LINE#         199
+  C:03AFH         LINE#         202
+  C:03B1H         LINE#         203
+  C:03B6H         LINE#         204
+  C:03BEH         LINE#         205
+  C:03D6H         LINE#         206
+  C:03D8H         LINE#         207
+  C:03DAH         LINE#         208
   -------         ENDPROC       _SPI_WRITE_BUF
   -------         PROC          RX_MODE
-  C:0518H         LINE#         213
-  C:0518H         LINE#         214
-  C:051BH         LINE#         215
-  C:051DH         LINE#         216
-  C:051FH         LINE#         217
-  C:0526H         LINE#         218
-  C:0528H         LINE#         219
+  C:04F6H         LINE#         213
+  C:04F6H         LINE#         214
+  C:04F9H         LINE#         215
+  C:04FBH         LINE#         216
+  C:04FDH         LINE#         217
+  C:0504H         LINE#         218
+  C:0506H         LINE#         219
   -------         ENDPROC       RX_MODE
   -------         PROC          _TX_MODE_NOACK
   D:0008H         SYMBOL        payloadLength
@@ -350,28 +350,28 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   C:003FH         LINE#         235
   -------         ENDPROC       _TX_MODE_NOACK
   -------         PROC          RF_IRQ
-  C:02DEH         LINE#         243
-  C:02F7H         LINE#         245
-  C:02FEH         LINE#         246
-  C:0301H         LINE#         247
-  C:030FH         LINE#         248
-  C:0316H         LINE#         249
-  C:0318H         LINE#         250
-  C:0322H         LINE#         251
-  C:0327H         LINE#         252
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 7
+  C:02CEH         LINE#         243
+  C:02E7H         LINE#         245
+  C:02EEH         LINE#         246
+  C:02F1H         LINE#         247
+  C:02FFH         LINE#         248
+  C:0306H         LINE#         249
+  C:0308H         LINE#         250
+  C:0312H         LINE#         251
+  C:0317H         LINE#         252
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 7
 
 
-  C:0329H         LINE#         253
-  C:032FH         LINE#         254
-  C:0331H         LINE#         255
-  C:0331H         LINE#         256
-  C:0331H         LINE#         257
-  C:0334H         LINE#         258
-  C:033BH         LINE#         259
-  C:033EH         LINE#         260
-  C:0345H         LINE#         261
-  C:034CH         LINE#         262
+  C:0319H         LINE#         253
+  C:031FH         LINE#         254
+  C:0321H         LINE#         255
+  C:0321H         LINE#         256
+  C:0321H         LINE#         257
+  C:0324H         LINE#         258
+  C:032BH         LINE#         259
+  C:032EH         LINE#         260
+  C:0335H         LINE#         261
+  C:033CH         LINE#         262
   -------         ENDPROC       RF_IRQ
   -------         PROC          _RF_INIT
   D:0008H         SYMBOL        rx_addr
@@ -382,62 +382,62 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   -------         DO            
   D:0004H         SYMBOL        rf_setup_byte
   -------         ENDDO         
-  C:010BH         LINE#         272
-  C:0111H         LINE#         273
-  C:0113H         LINE#         274
-  C:0115H         LINE#         275
-  C:0117H         LINE#         276
-  C:0119H         LINE#         277
-  C:011BH         LINE#         278
-  C:011DH         LINE#         280
-  C:012CH         LINE#         281
-  C:012CH         LINE#         282
-  C:012FH         LINE#         283
-  C:0131H         LINE#         284
-  C:0131H         LINE#         285
-  C:0134H         LINE#         286
-  C:0137H         LINE#         287
-  C:0139H         LINE#         288
-  C:0139H         LINE#         289
-  C:013CH         LINE#         290
-  C:013CH         LINE#         291
-  C:013EH         LINE#         292
-  C:013EH         LINE#         293
-  C:0141H         LINE#         294
-  C:0141H         LINE#         295
-  C:0141H         LINE#         296
-  C:014BH         LINE#         297
-  C:014BH         LINE#         298
-  C:014EH         LINE#         299
-  C:0151H         LINE#         300
-  C:0153H         LINE#         301
-  C:0153H         LINE#         302
-  C:0156H         LINE#         303
-  C:0158H         LINE#         304
-  C:0158H         LINE#         305
-  C:015BH         LINE#         306
-  C:015EH         LINE#         307
-  C:015EH         LINE#         308
-  C:015EH         LINE#         310
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 8
+  C:00FBH         LINE#         272
+  C:0101H         LINE#         273
+  C:0103H         LINE#         274
+  C:0105H         LINE#         275
+  C:0107H         LINE#         276
+  C:0109H         LINE#         277
+  C:010BH         LINE#         278
+  C:010DH         LINE#         280
+  C:011CH         LINE#         281
+  C:011CH         LINE#         282
+  C:011FH         LINE#         283
+  C:0121H         LINE#         284
+  C:0121H         LINE#         285
+  C:0124H         LINE#         286
+  C:0127H         LINE#         287
+  C:0129H         LINE#         288
+  C:0129H         LINE#         289
+  C:012CH         LINE#         290
+  C:012CH         LINE#         291
+  C:012EH         LINE#         292
+  C:012EH         LINE#         293
+  C:0131H         LINE#         294
+  C:0131H         LINE#         295
+  C:0131H         LINE#         296
+  C:013BH         LINE#         297
+  C:013BH         LINE#         298
+  C:013EH         LINE#         299
+  C:0141H         LINE#         300
+  C:0143H         LINE#         301
+  C:0143H         LINE#         302
+  C:0146H         LINE#         303
+  C:0148H         LINE#         304
+  C:0148H         LINE#         305
+  C:014BH         LINE#         306
+  C:014EH         LINE#         307
+  C:014EH         LINE#         308
+  C:014EH         LINE#         310
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 8
 
 
-  C:016CH         LINE#         312
-  C:017AH         LINE#         314
-  C:0181H         LINE#         316
-  C:0188H         LINE#         318
-  C:018FH         LINE#         320
-  C:0196H         LINE#         322
-  C:019DH         LINE#         324
-  C:01A4H         LINE#         326
-  C:01ABH         LINE#         328
-  C:01ADH         LINE#         329
+  C:015CH         LINE#         312
+  C:016AH         LINE#         314
+  C:0171H         LINE#         316
+  C:0178H         LINE#         318
+  C:017FH         LINE#         320
+  C:0186H         LINE#         322
+  C:018DH         LINE#         324
+  C:0194H         LINE#         326
+  C:019BH         LINE#         328
+  C:019DH         LINE#         329
   -------         ENDPROC       _RF_INIT
   -------         PROC          _SETUP_T0_ELAPSED_MS
   D:0006H         SYMBOL        T_ms
   D:0002H         SYMBOL        flag_count
-  C:0506H         LINE#         50
-  C:050AH         LINE#         51
+  C:04E4H         LINE#         50
+  C:04E8H         LINE#         51
   -------         ENDPROC       _SETUP_T0_ELAPSED_MS
   -------         PROC          _SETUP_T0_ELAPSED_US
   D:0006H         SYMBOL        T_us
@@ -445,205 +445,203 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   -------         DO            
   D:0006H         SYMBOL        qnt_ticks
   -------         ENDDO         
-  C:04A8H         LINE#         62
-  C:04ACH         LINE#         63
-  C:04BEH         LINE#         64
+  C:0486H         LINE#         62
+  C:048AH         LINE#         63
+  C:049CH         LINE#         64
   -------         ENDPROC       _SETUP_T0_ELAPSED_US
   -------         PROC          _SETUP_T0_TICKS
   D:0002H         SYMBOL        number_beats
   D:0004H         SYMBOL        flag_count
-  C:0529H         LINE#         73
-  C:052BH         LINE#         74
-  C:052FH         LINE#         75
-  C:0532H         LINE#         76
-  C:0538H         LINE#         77
+  C:0507H         LINE#         73
+  C:0509H         LINE#         74
+  C:050DH         LINE#         75
+  C:0510H         LINE#         76
+  C:0516H         LINE#         77
   -------         ENDPROC       _SETUP_T0_TICKS
   -------         PROC          START_T0
-  C:0539H         LINE#         80
-  C:0539H         LINE#         81
-  C:053CH         LINE#         82
-  C:053FH         LINE#         83
-  C:0542H         LINE#         84
-  C:0544H         LINE#         85
-  C:0546H         LINE#         86
-  C:0548H         LINE#         87
+  C:0517H         LINE#         80
+  C:0517H         LINE#         81
+  C:051AH         LINE#         82
+  C:051DH         LINE#         83
+  C:0520H         LINE#         84
+  C:0522H         LINE#         85
+  C:0524H         LINE#         86
+  C:0526H         LINE#         87
   -------         ENDPROC       START_T0
   -------         PROC          PREPARE_T0
-  C:0559H         LINE#         89
-  C:0559H         LINE#         90
-  C:055CH         LINE#         91
-  C:055FH         LINE#         92
-  C:0562H         LINE#         93
-  C:0564H         LINE#         94
-  C:0566H         LINE#         95
+  C:0537H         LINE#         89
+  C:0537H         LINE#         90
+  C:053AH         LINE#         91
+  C:053DH         LINE#         92
+  C:0540H         LINE#         93
+  C:0542H         LINE#         94
+  C:0544H         LINE#         95
   -------         ENDPROC       PREPARE_T0
   -------         PROC          RUN_T0
   C:0008H         LINE#         96
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 9
 
 
   C:0008H         LINE#         97
   C:000AH         LINE#         98
   -------         ENDPROC       RUN_T0
   -------         PROC          STOP_T0
-  C:0549H         LINE#         100
-  C:0549H         LINE#         101
-  C:054CH         LINE#         102
-  C:054FH         LINE#         103
-  C:0552H         LINE#         104
-  C:0554H         LINE#         105
-  C:0556H         LINE#         106
-  C:0558H         LINE#         107
+  C:0527H         LINE#         100
+  C:0527H         LINE#         101
+  C:052AH         LINE#         102
+  C:052DH         LINE#         103
+  C:0530H         LINE#         104
+  C:0532H         LINE#         105
+  C:0534H         LINE#         106
+  C:0536H         LINE#         107
   -------         ENDPROC       STOP_T0
   -------         PROC          SETUP
-  C:0363H         LINE#         28
-  C:0363H         LINE#         29
-  C:0366H         LINE#         30
-  C:0369H         LINE#         32
-  C:0384H         LINE#         35
-  C:038FH         LINE#         39
-  C:0392H         LINE#         42
-  C:03A4H         LINE#         43
-  C:03B6H         LINE#         46
-  C:03BCH         LINE#         47
-  C:03C0H         LINE#         48
-  C:03C4H         LINE#         49
+  C:0353H         LINE#         29
+  C:0353H         LINE#         30
+  C:0356H         LINE#         31
+  C:0359H         LINE#         33
+  C:0374H         LINE#         36
+  C:037FH         LINE#         40
+  C:0382H         LINE#         43
+  C:0394H         LINE#         44
+  C:03A6H         LINE#         46
+  C:03A8H         LINE#         47
   -------         ENDPROC       SETUP
   -------         PROC          AVALIA_COMANDO
-  C:004EH         LINE#         51
-  C:004EH         LINE#         52
-  C:006CH         LINE#         53
-  C:006CH         LINE#         54
-  C:0071H         LINE#         55
-  C:0075H         LINE#         56
+  C:004EH         LINE#         49
+  C:004EH         LINE#         50
+  C:0068H         LINE#         51
+  C:0068H         LINE#         52
+  C:006DH         LINE#         53
+  C:0071H         LINE#         54
+  C:0072H         LINE#         55
+  C:0072H         LINE#         56
   C:0077H         LINE#         57
-  C:0078H         LINE#         58
-  C:0078H         LINE#         59
-  C:007AH         LINE#         60
-  C:007FH         LINE#         61
-  C:0083H         LINE#         62
-  C:0084H         LINE#         63
-  C:0084H         LINE#         64
-  C:008BH         LINE#         65
-  C:0091H         LINE#         66
-  C:0095H         LINE#         67
-  C:0099H         LINE#         68
-  C:00A0H         LINE#         69
-  C:00A3H         LINE#         70
-  C:00A5H         LINE#         71
-  C:00A6H         LINE#         72
-  C:00A6H         LINE#         73
-  C:00ADH         LINE#         74
-  C:00B3H         LINE#         75
-  C:00B7H         LINE#         76
-  C:00BBH         LINE#         77
-  C:00BFH         LINE#         78
-  C:00C6H         LINE#         79
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 10
+  C:007BH         LINE#         58
+  C:007DH         LINE#         59
+  C:0083H         LINE#         60
+  C:0089H         LINE#         61
+  C:008DH         LINE#         62
+  C:0090H         LINE#         63
+  C:0092H         LINE#         64
+  C:0094H         LINE#         65
+  C:0094H         LINE#         66
+  C:0096H         LINE#         67
+  C:009BH         LINE#         68
+  C:009FH         LINE#         69
+  C:00A0H         LINE#         70
+  C:00A0H         LINE#         71
+  C:00A7H         LINE#         72
+  C:00ADH         LINE#         73
+  C:00B1H         LINE#         74
+  C:00B5H         LINE#         75
+  C:00B9H         LINE#         76
+  C:00C0H         LINE#         77
+  C:00C2H         LINE#         78
+  C:00C3H         LINE#         79
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 10
 
 
-  C:00C8H         LINE#         80
+  C:00C3H         LINE#         80
   C:00C9H         LINE#         81
-  C:00C9H         LINE#         82
-  C:00CBH         LINE#         83
-  C:00CCH         LINE#         84
-  C:00CCH         LINE#         85
-  C:00D3H         LINE#         86
-  C:00D9H         LINE#         87
-  C:00E7H         LINE#         88
-  C:0101H         LINE#         89
-  C:0105H         LINE#         90
-  C:010AH         LINE#         91
-  C:010AH         LINE#         92
-  C:010AH         LINE#         93
-  C:010AH         LINE#         94
-  C:010AH         LINE#         95
+  C:00D7H         LINE#         82
+  C:00F1H         LINE#         83
+  C:00F5H         LINE#         84
+  C:00FAH         LINE#         85
+  C:00FAH         LINE#         86
+  C:00FAH         LINE#         87
+  C:00FAH         LINE#         88
+  C:00FAH         LINE#         89
   -------         ENDPROC       AVALIA_COMANDO
   -------         PROC          MAIN
-  C:042EH         LINE#         97
-  C:042EH         LINE#         98
-  C:0431H         LINE#         99
-  C:0431H         LINE#         100
-  C:0434H         LINE#         101
-  C:0437H         LINE#         102
-  C:043DH         LINE#         103
-  C:043DH         LINE#         104
-  C:0440H         LINE#         105
-  C:0445H         LINE#         106
-  C:044CH         LINE#         107
-  C:044FH         LINE#         108
-  C:0458H         LINE#         109
-  C:045BH         LINE#         110
-  C:045BH         LINE#         111
-  C:045BH         LINE#         112
+  C:040CH         LINE#         91
+  C:040CH         LINE#         92
+  C:040FH         LINE#         93
+  C:040FH         LINE#         94
+  C:0412H         LINE#         95
+  C:0415H         LINE#         96
+  C:041BH         LINE#         97
+  C:041BH         LINE#         98
+  C:041EH         LINE#         99
+  C:0423H         LINE#         100
+  C:042AH         LINE#         101
+  C:042DH         LINE#         102
+  C:0436H         LINE#         103
+  C:0439H         LINE#         104
+  C:0439H         LINE#         105
+  C:0439H         LINE#         106
   -------         ENDPROC       MAIN
   -------         PROC          TMR0_IRQ
-  C:045DH         LINE#         117
-  C:0461H         LINE#         119
-  C:0461H         LINE#         120
-  C:0461H         LINE#         121
-  C:0469H         LINE#         122
-  C:0472H         LINE#         123
-  C:0475H         LINE#         124
-  C:047BH         LINE#         125
-  C:047BH         LINE#         126
-  C:047EH         LINE#         127
-  C:0481H         LINE#         128
-  C:0481H         LINE#         129
+  C:043BH         LINE#         111
+  C:043FH         LINE#         113
+  C:043FH         LINE#         114
+  C:043FH         LINE#         115
+  C:0447H         LINE#         116
+  C:0450H         LINE#         117
+  C:0453H         LINE#         118
+  C:0459H         LINE#         119
+  C:0459H         LINE#         120
+  C:045CH         LINE#         121
+  C:045FH         LINE#         122
+  C:045FH         LINE#         123
   -------         ENDPROC       TMR0_IRQ
   -------         ENDMOD        EXEMPLO_TIMER
 
   -------         MODULE        HAL_DELAY
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:04DFH         PUBLIC        _delay_ms
-  C:04D0H         PUBLIC        _delay_us
+  C:04BDH         PUBLIC        _delay_ms
+  C:04AEH         PUBLIC        _delay_us
   -------         PROC          L?0011
   -------         ENDPROC       L?0011
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/09/2018  14:01:00  PAGE 11
-
-
   -------         PROC          _DELAY_US
   D:0006H         SYMBOL        us
-  C:04D0H         LINE#         37
-  C:04D0H         LINE#         38
-  C:04D0H         LINE#         40
-  C:04D0H         LINE#         41
-  C:04D1H         LINE#         42
-  C:04D2H         LINE#         43
-  C:04D3H         LINE#         44
-  C:04D4H         LINE#         45
-  C:04D5H         LINE#         46
-  C:04DEH         LINE#         47
+  C:04AEH         LINE#         37
+  C:04AEH         LINE#         38
+  C:04AEH         LINE#         40
+  C:04AEH         LINE#         41
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:50:01  PAGE 11
+
+
+  C:04AFH         LINE#         42
+  C:04B0H         LINE#         43
+  C:04B1H         LINE#         44
+  C:04B2H         LINE#         45
+  C:04B3H         LINE#         46
+  C:04BCH         LINE#         47
   -------         ENDPROC       _DELAY_US
   -------         PROC          _DELAY_MS
   D:0004H         SYMBOL        ms
-  C:04DFH         LINE#         49
-  C:04E3H         LINE#         50
-  C:04E3H         LINE#         52
-  C:04E3H         LINE#         53
-  C:04E3H         LINE#         54
-  C:04E6H         LINE#         55
-  C:04E6H         LINE#         56
-  C:04E9H         LINE#         57
-  C:04F2H         LINE#         58
+  C:04BDH         LINE#         49
+  C:04C1H         LINE#         50
+  C:04C1H         LINE#         52
+  C:04C1H         LINE#         53
+  C:04C1H         LINE#         54
+  C:04C4H         LINE#         55
+  C:04C4H         LINE#         56
+  C:04C7H         LINE#         57
+  C:04D0H         LINE#         58
   -------         ENDPROC       _DELAY_MS
   -------         ENDMOD        HAL_DELAY
 
   -------         MODULE        ?C?CLDPTR
-  C:01B0H         PUBLIC        ?C?CLDPTR
+  C:01A0H         PUBLIC        ?C?CLDPTR
   -------         ENDMOD        ?C?CLDPTR
 
   -------         MODULE        ?C?CSTOPTR
-  C:01C9H         PUBLIC        ?C?CSTOPTR
+  C:01B9H         PUBLIC        ?C?CSTOPTR
   -------         ENDMOD        ?C?CSTOPTR
 
   -------         MODULE        ?C?IMUL
-  C:01EBH         PUBLIC        ?C?IMUL
+  C:01DBH         PUBLIC        ?C?IMUL
   -------         ENDMOD        ?C?IMUL
 
   -------         MODULE        ?C?UIDIV
-  C:01FDH         PUBLIC        ?C?UIDIV
+  C:01EDH         PUBLIC        ?C?UIDIV
   -------         ENDMOD        ?C?UIDIV
 
-Program Size: data=40.1 xdata=65 code=1397
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0430H BYTE (52%) *
+******************************************************************************
+
+Program Size: data=40.1 xdata=65 code=1363
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

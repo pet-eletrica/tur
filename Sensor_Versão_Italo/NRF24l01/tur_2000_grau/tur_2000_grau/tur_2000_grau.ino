@@ -13,6 +13,7 @@
 #define LER_COUNTER_CMD 'R'
 #define MUDAR_LED_CMD 'L'
 #define LER_BTN_FLAG_CMD 'B'
+#define RESET_TIMER 'A'
 
 //Variáveis
 uint16_t tempo1 = 0;
@@ -66,12 +67,13 @@ void loop() {
     host_nrf.tx_buf[0] = BROADCAST_ADDRESS;
     host_nrf.tx_buf[1] = Serial.read();
     host_nrf.TX_Mode_NOACK(2);
-    Serial.println("**Payload Enviada**");
+    //Serial.println("**Payload Enviada**");
+    Serial.print("\n");
     Serial.print("Payload Width: "); Serial.println(2);
-    Serial.print("Payload Data: "); Serial.write(host_nrf.tx_buf, 2);
+    //Serial.print("Payload Data: "); //Serial.write(host_nrf.tx_buf, 2);
     Serial.print("\n");
     for (int i = 0; i < 2; i++) {
-      Serial.print("0x"); Serial.print(host_nrf.tx_buf[i], HEX); Serial.print(" ");
+      Serial.print("0x"); Serial.print(host_nrf.tx_buf[i], HEX); //Serial.print(" ");
     }
     Serial.print("\n");
   }

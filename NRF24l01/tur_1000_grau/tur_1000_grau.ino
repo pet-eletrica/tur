@@ -44,7 +44,27 @@ void loop() {
     tempo1 = host_nrf.rx_buf[2] << 8 | host_nrf.rx_buf[3];
     if (sensor == '1') {
       Serial.print("A: ");
-      Serial.print(tempo1 * 5);
+      Serial.print(tempo1 * 49);
+      Serial.println(" ms.\t");
+    }
+     else if (sensor == '2') {
+      Serial.print("b: ");
+      Serial.print(tempo1 * 49);
+      Serial.println(" ms.\t");
+    }
+     else if (sensor == '3') {
+      Serial.print("C: ");
+      Serial.print(tempo1 * 49);
+      Serial.println(" ms.\t");
+    }
+     else if (sensor == '4') {
+      Serial.print("D: ");
+      Serial.print(tempo1 * 49);
+      Serial.println(" ms.\t");
+    }
+     else if (sensor == '5') {
+      Serial.print("E: ");
+      Serial.print(tempo1 * 49);
       Serial.println(" ms.\t");
     }
   }
@@ -55,18 +75,40 @@ void loop() {
     host_nrf.tx_buf[0] = BROADCAST_ADDRESS;
     host_nrf.tx_buf[1] = Serial.read();
     host_nrf.TX_Mode_NOACK(2);
-    //    Serial.print("\n");
-    //    for (int i = 0; i < 2; i++) {
-    //      Serial.print("0x"); Serial.print(host_nrf.tx_buf[i], HEX); //Serial.print(" ");
-    //    }
-    //    Serial.print("\n");
-
   }
     if (host_nrf.tx_buf[1] == 'I') {
-      if (actual_millis - requisitou_dado_millis > 125) {
+      if (actual_millis - requisitou_dado_millis > 101) {
         requisitou_dado_millis = actual_millis;
         if (requisitando_de == 1) {
           host_nrf.tx_buf[0] = '1'; //trocar para ler cada sensor
+          host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+          host_nrf.TX_Mode_NOACK(2);
+          requisitando_de = 2;
+          host_nrf.tx_buf[1] = 'I';
+        }
+       else if (requisitando_de == 2) {
+          host_nrf.tx_buf[0] = '2'; //trocar para ler cada sensor
+          host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+          host_nrf.TX_Mode_NOACK(2);
+          requisitando_de = 3;
+          host_nrf.tx_buf[1] = 'I';
+        }
+        else if (requisitando_de == 3) {
+          host_nrf.tx_buf[0] = '3'; //trocar para ler cada sensor
+          host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+          host_nrf.TX_Mode_NOACK(2);
+          requisitando_de = 4;
+          host_nrf.tx_buf[1] = 'I';
+        }
+        else if (requisitando_de == 4) {
+          host_nrf.tx_buf[0] = '4'; //trocar para ler cada sensor
+          host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+          host_nrf.TX_Mode_NOACK(2);
+          requisitando_de = 5;
+          host_nrf.tx_buf[1] = 'I';
+        }
+        else if (requisitando_de == 5) {
+          host_nrf.tx_buf[0] = '5'; //trocar para ler cada sensor
           host_nrf.tx_buf[1] = LER_COUNTER_CMD;
           host_nrf.TX_Mode_NOACK(2);
           requisitando_de = 1;

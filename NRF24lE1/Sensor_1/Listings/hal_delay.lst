@@ -1,4 +1,4 @@
-C51 COMPILER V9.57.0.0   HAL_DELAY                                                         07/09/2018 13:56:54 PAGE 1   
+C51 COMPILER V9.57.0.0   HAL_DELAY                                                         07/18/2018 22:43:59 PAGE 1   
 
 
 C51 COMPILER V9.57.0.0, COMPILATION OF MODULE HAL_DELAY
@@ -10,6 +10,9 @@ COMPILER INVOKED BY: D:\Programas\Keil C51\C51\BIN\C51.EXE D:\Programas\Nordic S
                     -.\Listings\hal_delay.lst) TABS(2) OBJECT(.\Objects\hal_delay.obj)
 
 line level    source
+
+*** WARNING C500 IN LINE 1 OF D:\Programas\Nordic Semiconductor\nRFgo SDK 2.3.0.10040\source_code\hal\hal_delay.c: LICEN
+             -SE ERROR (R230(2): CONNECT TO UVISION KERNEL FAILED)
 
    1          /* Copyright (c) 2009 Nordic Semiconductor. All Rights Reserved.
    2           *
@@ -60,10 +63,10 @@ line level    source
   47   1      }
   48          
   49          void delay_ms(uint16_t ms)
+C51 COMPILER V9.57.0.0   HAL_DELAY                                                         07/18/2018 22:43:59 PAGE 2   
+
   50          {
   51   1        do
-C51 COMPILER V9.57.0.0   HAL_DELAY                                                         07/09/2018 13:56:54 PAGE 2   
-
   52   1        {
   53   2          delay_us(250);
   54   2          delay_us(250);
@@ -86,4 +89,4 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

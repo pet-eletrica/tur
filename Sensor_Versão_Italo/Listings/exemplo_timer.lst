@@ -1,4 +1,4 @@
-C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/05/2018 19:08:00 PAGE 1   
+C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/17/2018 16:33:54 PAGE 1   
 
 
 C51 COMPILER V9.57.0.0, COMPILATION OF MODULE EXEMPLO_TIMER
@@ -62,7 +62,7 @@ line level    source
   49   1        TX_Mode_NOACK(3);
   50   1      }
   51          void avalia_comando(){
-C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/05/2018 19:08:00 PAGE 2   
+C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/17/2018 16:33:54 PAGE 2   
 
   52   1          switch(rx_buf[1]){
   53   2            case INICIA_TIMER_CMD:
@@ -126,7 +126,7 @@ line level    source
  111   3          }
  112   2        }
  113   1      }
-C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/05/2018 19:08:00 PAGE 3   
+C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/17/2018 16:33:54 PAGE 3   
 
  114          
  115          /**************************************************/
