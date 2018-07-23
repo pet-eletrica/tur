@@ -1,4 +1,4 @@
-C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/18/2018 22:49:23 PAGE 1   
+C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/23/2018 14:20:25 PAGE 1   
 
 
 C51 COMPILER V9.57.0.0, COMPILATION OF MODULE EXEMPLO_TIMER
@@ -63,7 +63,7 @@ line level    source
   48          
   49          void avalia_comando(){
   50   1          switch(rx_buf[1]){
-C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/18/2018 22:49:23 PAGE 2   
+C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/23/2018 14:20:25 PAGE 2   
 
   51   2            case RESET_TIMER:
   52   2              timer_count = 0;
@@ -127,7 +127,7 @@ line level    source
  110          /********************TIMER*************************/
  111          void TMR0_IRQ(void) interrupt INTERRUPT_TMR0
  112          {
-C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/18/2018 22:49:23 PAGE 3   
+C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/23/2018 14:20:25 PAGE 3   
 
  113   1        if(!NOVT0)
  114   1        {

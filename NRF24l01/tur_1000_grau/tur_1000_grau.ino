@@ -77,7 +77,7 @@ void loop() {
     host_nrf.TX_Mode_NOACK(2);
   }
     if (host_nrf.tx_buf[1] == 'I') {
-      if (actual_millis - requisitou_dado_millis > 101) {
+      if (actual_millis - requisitou_dado_millis > 125) {
         requisitou_dado_millis = actual_millis;
         if (requisitando_de == 1) {
           host_nrf.tx_buf[0] = '1'; //trocar para ler cada sensor
