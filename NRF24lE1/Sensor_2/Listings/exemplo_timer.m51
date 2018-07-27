@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    07/18/2018  22:48:56  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    07/26/2018  20:39:27  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -33,8 +33,8 @@ LINK MAP OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
             DATA    0020H     0001H     BIT_ADDR     ?BA?EXEMPLO_TIMER
             BIT     0021H.0   0000H.1   UNIT         ?BI?EXEMPLO_TIMER
                     0021H.1   0000H.7                *** GAP ***
-            DATA    0022H     000BH     UNIT         ?DT?EXEMPLO_TIMER
-            IDATA   002DH     0001H     UNIT         ?STACK
+            DATA    0022H     000DH     UNIT         ?DT?EXEMPLO_TIMER
+            IDATA   002FH     0001H     UNIT         ?STACK
 
             * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
             XDATA   0000H     0041H     UNIT         ?XD?EXEMPLO_TIMER
@@ -59,22 +59,22 @@ LINK MAP OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
             CODE    0C21H     0029H     UNIT         ?PR?TMR0_IRQ?EXEMPLO_TIMER
             CODE    0C4AH     0022H     UNIT         ?C_INITSEG
             CODE    0C6CH     001DH     UNIT         ?PR?_SETUP_T0_ELAPSED_US?EXEMPLO_TIMER
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 2
 
 
             CODE    0C89H     001AH     UNIT         ?PR?_DELAY_US?HAL_DELAY
-            CODE    0CA3H     0014H     UNIT         ?PR?_DELAY_MS?HAL_DELAY
-            CODE    0CB7H     0013H     UNIT         ?PR?_SPI_RW_REG?EXEMPLO_TIMER
-            CODE    0CCAH     0012H     UNIT         ?PR?_SETUP_T0_ELAPSED_MS?EXEMPLO_TIMER
-            CODE    0CDCH     0011H     UNIT         ?PR?RX_MODE?EXEMPLO_TIMER
-            CODE    0CEDH     0010H     UNIT         ?PR?_SETUP_T0_TICKS?EXEMPLO_TIMER
-            CODE    0CFDH     0010H     UNIT         ?PR?START_T0?EXEMPLO_TIMER
-            CODE    0D0DH     0010H     UNIT         ?PR?STOP_T0?EXEMPLO_TIMER
-            CODE    0D1DH     000EH     UNIT         ?PR?PREPARE_T0?EXEMPLO_TIMER
-            CODE    0D2BH     000DH     UNIT         ?PR?_SPI_READ?EXEMPLO_TIMER
-            CODE    0D38H     000AH     UNIT         ?PR?_SPI_RW?EXEMPLO_TIMER
-            CODE    0D42H     0005H     UNIT         ?CO?EXEMPLO_TIMER
-            CODE    0D47H     0003H     UNIT         ?PR?RUN_T0?EXEMPLO_TIMER
+            CODE    0CA3H     0014H     UNIT         ?PR?_SETUP_T0_TICKS?EXEMPLO_TIMER
+            CODE    0CB7H     0014H     UNIT         ?PR?_DELAY_MS?HAL_DELAY
+            CODE    0CCBH     0013H     UNIT         ?PR?_SPI_RW_REG?EXEMPLO_TIMER
+            CODE    0CDEH     0012H     UNIT         ?PR?_SETUP_T0_ELAPSED_MS?EXEMPLO_TIMER
+            CODE    0CF0H     0011H     UNIT         ?PR?RX_MODE?EXEMPLO_TIMER
+            CODE    0D01H     0010H     UNIT         ?PR?START_T0?EXEMPLO_TIMER
+            CODE    0D11H     0010H     UNIT         ?PR?STOP_T0?EXEMPLO_TIMER
+            CODE    0D21H     000EH     UNIT         ?PR?PREPARE_T0?EXEMPLO_TIMER
+            CODE    0D2FH     000DH     UNIT         ?PR?_SPI_READ?EXEMPLO_TIMER
+            CODE    0D3CH     000AH     UNIT         ?PR?_SPI_RW?EXEMPLO_TIMER
+            CODE    0D46H     0005H     UNIT         ?CO?EXEMPLO_TIMER
+            CODE    0D4BH     0003H     UNIT         ?PR?RUN_T0?EXEMPLO_TIMER
 
 
 
@@ -119,7 +119,7 @@ SEGMENT                                          DATA_GROUP
 ?PR?AVALIA_COMANDO?EXEMPLO_TIMER               -----    -----
   +--> ?PR?_DELAY_MS?HAL_DELAY
   +--> ?PR?_TX_MODE_NOACK?EXEMPLO_TIMER
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 3
 
 
 
@@ -151,7 +151,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
 
   -------         MODULE        ?C_STARTUP
   C:09F4H         SEGMENT       ?C_C51STARTUP
-  I:002DH         SEGMENT       ?STACK
+  I:002FH         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
   D:00F0H         SYMBOL        B
@@ -179,7 +179,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   C:09F6H         LINE#         134
   C:09F7H         LINE#         135
   C:09F8H         LINE#         136
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 4
 
 
   C:09FAH         LINE#         185
@@ -198,20 +198,21 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   X:0020H         PUBLIC        tx_buf
   D:00A8H         PUBLIC        IEN0
   D:00B8H         PUBLIC        IEN1
-  C:0CDCH         PUBLIC        RX_Mode
-  C:0CFDH         PUBLIC        start_T0
+  C:0CF0H         PUBLIC        RX_Mode
+  C:0D01H         PUBLIC        start_T0
   B:00B8H.1       PUBLIC        RF
   D:00E7H         PUBLIC        SPIRDAT
-  C:0CEDH         PUBLIC        _setup_T0_ticks
+  C:0CA3H         PUBLIC        _setup_T0_ticks
   B:0021H.0       PUBLIC        newPayload
-  C:0CCAH         PUBLIC        _setup_T0_elapsed_ms
+  C:0CDEH         PUBLIC        _setup_T0_elapsed_ms
   B:0020H.6       PUBLIC        RX_DR
   B:00E8H.0       PUBLIC        RFCE
   B:0020H.5       PUBLIC        TX_DS
   C:0C6CH         PUBLIC        _setup_T0_elapsed_us
   C:0BF2H         PUBLIC        main
-  C:0D0DH         PUBLIC        stop_T0
-  D:0024H         PUBLIC        timer_count
+  D:0024H         PUBLIC        VLT0
+  C:0D11H         PUBLIC        stop_T0
+  D:0026H         PUBLIC        timer_count
   B:0080H.3       PUBLIC        P03
   C:0B05H         PUBLIC        setup
   B:0090H.4       PUBLIC        P14
@@ -219,41 +220,41 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   D:0088H         PUBLIC        TCON
   B:0080H.6       PUBLIC        P06
   C:0800H         PUBLIC        avalia_comando
-  C:0D47H         PUBLIC        run_T0
+  C:0D4BH         PUBLIC        run_T0
   B:00E8H.2       PUBLIC        RFCKEN
-  C:0D42H         PUBLIC        ADDR_HOST
-  D:0026H         PUBLIC        btn_passou
+  C:0D46H         PUBLIC        ADDR_HOST
+  D:0028H         PUBLIC        btn_passou
   D:0020H         PUBLIC        sta
   B:00A8H.1       PUBLIC        ET0
   C:0BC1H         PUBLIC        _SPI_Read_Buf
-  C:0D2BH         PUBLIC        _SPI_Read
+  C:0D2FH         PUBLIC        _SPI_Read
   D:008CH         PUBLIC        TH0
   D:008AH         PUBLIC        TL0
   B:0088H.4       PUBLIC        TR0
-  C:0D1DH         PUBLIC        prepare_T0
-  D:0027H         PUBLIC        tempo1
+  C:0D21H         PUBLIC        prepare_T0
+  D:0029H         PUBLIC        tempo1
   C:0B8FH         PUBLIC        _SPI_Write_Buf
-  D:0029H         PUBLIC        NBT0H
+  D:002BH         PUBLIC        NBT0H
   D:0093H         PUBLIC        P0DIR
-  D:002AH         PUBLIC        NBT0L
+  D:002CH         PUBLIC        NBT0L
   D:0094H         PUBLIC        P1DIR
   C:0B5BH         PUBLIC        _TX_Mode_NOACK
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 5
+
+
   D:0098H         PUBLIC        S0CON
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 5
-
-
   C:0A80H         PUBLIC        RF_IRQ
   D:00D8H         PUBLIC        ADCON
-  D:002BH         PUBLIC        timer_elapsed
+  D:002DH         PUBLIC        timer_elapsed
   D:00C8H         PUBLIC        T2CON
-  D:002CH         PUBLIC        i
+  D:002EH         PUBLIC        i
   D:00F8H         PUBLIC        FSR
   B:0020H.4       PUBLIC        MAX_RT
   C:08ADH         PUBLIC        _rf_init
   C:0C21H         PUBLIC        TMR0_IRQ
   X:0040H         PUBLIC        payloadWidth
-  C:0CB7H         PUBLIC        _SPI_RW_Reg
-  C:0D38H         PUBLIC        _SPI_RW
+  C:0CCBH         PUBLIC        _SPI_RW_Reg
+  C:0D3CH         PUBLIC        _SPI_RW
   D:00E8H         PUBLIC        RFCON
   D:00D0H         PUBLIC        PSW
   D:00C0H         PUBLIC        IRCON
@@ -261,11 +262,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   D:00E6H         PUBLIC        SPIRSTAT
   -------         PROC          _SPI_RW
   D:0007H         SYMBOL        value
-  C:0D38H         LINE#         127
-  C:0D38H         LINE#         128
-  C:0D3AH         LINE#         130
-  C:0D3FH         LINE#         132
-  C:0D41H         LINE#         133
+  C:0D3CH         LINE#         127
+  C:0D3CH         LINE#         128
+  C:0D3EH         LINE#         130
+  C:0D43H         LINE#         132
+  C:0D45H         LINE#         133
   -------         ENDPROC       _SPI_RW
   -------         PROC          _SPI_RW_REG
   D:0007H         SYMBOL        reg
@@ -273,35 +274,35 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   -------         DO            
   D:0005H         SYMBOL        status
   -------         ENDDO         
-  C:0CB7H         LINE#         142
-  C:0CB9H         LINE#         145
-  C:0CBBH         LINE#         146
-  C:0CC0H         LINE#         147
-  C:0CC5H         LINE#         148
-  C:0CC7H         LINE#         150
-  C:0CC9H         LINE#         151
+  C:0CCBH         LINE#         142
+  C:0CCDH         LINE#         145
+  C:0CCFH         LINE#         146
+  C:0CD4H         LINE#         147
+  C:0CD9H         LINE#         148
+  C:0CDBH         LINE#         150
+  C:0CDDH         LINE#         151
   -------         ENDPROC       _SPI_RW_REG
   -------         PROC          _SPI_READ
   D:0007H         SYMBOL        reg
   -------         DO            
   D:0007H         SYMBOL        reg_val
   -------         ENDDO         
-  C:0D2BH         LINE#         159
-  C:0D2BH         LINE#         162
-  C:0D2DH         LINE#         163
-  C:0D30H         LINE#         164
-  C:0D35H         LINE#         165
-  C:0D37H         LINE#         167
-  C:0D37H         LINE#         168
+  C:0D2FH         LINE#         159
+  C:0D2FH         LINE#         162
+  C:0D31H         LINE#         163
+  C:0D34H         LINE#         164
+  C:0D39H         LINE#         165
+  C:0D3BH         LINE#         167
+  C:0D3BH         LINE#         168
   -------         ENDPROC       _SPI_READ
   -------         PROC          _SPI_READ_BUF
   D:0007H         SYMBOL        reg
   D:0017H         SYMBOL        pBuf
   D:001AH         SYMBOL        bytes
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 6
+
+
   -------         DO            
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 6
-
-
   D:0006H         SYMBOL        status
   D:0005H         SYMBOL        byte_ctr
   -------         ENDDO         
@@ -332,13 +333,13 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   C:0BC0H         LINE#         208
   -------         ENDPROC       _SPI_WRITE_BUF
   -------         PROC          RX_MODE
-  C:0CDCH         LINE#         213
-  C:0CDCH         LINE#         214
-  C:0CDFH         LINE#         215
-  C:0CE1H         LINE#         216
-  C:0CE3H         LINE#         217
-  C:0CEAH         LINE#         218
-  C:0CECH         LINE#         219
+  C:0CF0H         LINE#         213
+  C:0CF0H         LINE#         214
+  C:0CF3H         LINE#         215
+  C:0CF5H         LINE#         216
+  C:0CF7H         LINE#         217
+  C:0CFEH         LINE#         218
+  C:0D00H         LINE#         219
   -------         ENDPROC       RX_MODE
   -------         PROC          _TX_MODE_NOACK
   D:0008H         SYMBOL        payloadLength
@@ -358,10 +359,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   C:0AA3H         LINE#         247
   C:0AB1H         LINE#         248
   C:0AB8H         LINE#         249
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 7
+
+
   C:0ABAH         LINE#         250
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 7
-
-
   C:0AC4H         LINE#         251
   C:0AC9H         LINE#         252
   C:0ACBH         LINE#         253
@@ -418,10 +419,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   C:08FAH         LINE#         304
   C:08FAH         LINE#         305
   C:08FDH         LINE#         306
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 8
+
+
   C:0900H         LINE#         307
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 8
-
-
   C:0900H         LINE#         308
   C:0900H         LINE#         310
   C:090EH         LINE#         312
@@ -438,8 +439,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   -------         PROC          _SETUP_T0_ELAPSED_MS
   D:0006H         SYMBOL        T_ms
   D:0002H         SYMBOL        flag_count
-  C:0CCAH         LINE#         50
-  C:0CCEH         LINE#         51
+  C:0CDEH         LINE#         51
+  C:0CE2H         LINE#         52
   -------         ENDPROC       _SETUP_T0_ELAPSED_MS
   -------         PROC          _SETUP_T0_ELAPSED_US
   D:0006H         SYMBOL        T_us
@@ -447,55 +448,56 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   -------         DO            
   D:0006H         SYMBOL        qnt_ticks
   -------         ENDDO         
-  C:0C6CH         LINE#         62
-  C:0C70H         LINE#         63
-  C:0C82H         LINE#         64
+  C:0C6CH         LINE#         63
+  C:0C70H         LINE#         64
+  C:0C82H         LINE#         65
   -------         ENDPROC       _SETUP_T0_ELAPSED_US
   -------         PROC          _SETUP_T0_TICKS
-  D:0002H         SYMBOL        number_beats
+  D:0006H         SYMBOL        number_beats
   D:0004H         SYMBOL        flag_count
-  C:0CEDH         LINE#         73
-  C:0CEFH         LINE#         74
-  C:0CF3H         LINE#         75
-  C:0CF6H         LINE#         76
-  C:0CFCH         LINE#         77
+  C:0CA3H         LINE#         74
+  C:0CA3H         LINE#         75
+  C:0CA7H         LINE#         76
+  C:0CB0H         LINE#         77
+  C:0CB2H         LINE#         78
+  C:0CB6H         LINE#         80
   -------         ENDPROC       _SETUP_T0_TICKS
   -------         PROC          START_T0
-  C:0CFDH         LINE#         80
-  C:0CFDH         LINE#         81
-  C:0D00H         LINE#         82
-  C:0D03H         LINE#         83
-  C:0D06H         LINE#         84
-  C:0D08H         LINE#         85
-  C:0D0AH         LINE#         86
-  C:0D0CH         LINE#         87
+  C:0D01H         LINE#         83
+  C:0D01H         LINE#         84
+  C:0D04H         LINE#         85
+  C:0D07H         LINE#         86
+  C:0D0AH         LINE#         87
+  C:0D0CH         LINE#         88
+  C:0D0EH         LINE#         89
+  C:0D10H         LINE#         90
   -------         ENDPROC       START_T0
   -------         PROC          PREPARE_T0
-  C:0D1DH         LINE#         89
-  C:0D1DH         LINE#         90
-  C:0D20H         LINE#         91
-  C:0D23H         LINE#         92
-  C:0D26H         LINE#         93
-  C:0D28H         LINE#         94
-  C:0D2AH         LINE#         95
+  C:0D21H         LINE#         92
+  C:0D21H         LINE#         93
+  C:0D24H         LINE#         94
+  C:0D27H         LINE#         95
+  C:0D2AH         LINE#         96
+  C:0D2CH         LINE#         97
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 9
+
+
+  C:0D2EH         LINE#         98
   -------         ENDPROC       PREPARE_T0
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 9
-
-
   -------         PROC          RUN_T0
-  C:0D47H         LINE#         96
-  C:0D47H         LINE#         97
-  C:0D49H         LINE#         98
+  C:0D4BH         LINE#         99
+  C:0D4BH         LINE#         100
+  C:0D4DH         LINE#         101
   -------         ENDPROC       RUN_T0
   -------         PROC          STOP_T0
-  C:0D0DH         LINE#         100
-  C:0D0DH         LINE#         101
-  C:0D10H         LINE#         102
-  C:0D13H         LINE#         103
-  C:0D16H         LINE#         104
-  C:0D18H         LINE#         105
-  C:0D1AH         LINE#         106
-  C:0D1CH         LINE#         107
+  C:0D11H         LINE#         103
+  C:0D11H         LINE#         104
+  C:0D14H         LINE#         105
+  C:0D17H         LINE#         106
+  C:0D1AH         LINE#         107
+  C:0D1CH         LINE#         108
+  C:0D1EH         LINE#         109
+  C:0D20H         LINE#         110
   -------         ENDPROC       STOP_T0
   -------         PROC          SETUP
   C:0B05H         LINE#         29
@@ -537,11 +539,11 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   C:085FH         LINE#         73
   C:0863H         LINE#         74
   C:0867H         LINE#         75
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 10
+
+
   C:086BH         LINE#         76
   C:0872H         LINE#         77
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 10
-
-
   C:0874H         LINE#         78
   C:0875H         LINE#         79
   C:0875H         LINE#         80
@@ -591,17 +593,17 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
 
   -------         MODULE        HAL_DELAY
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0CA3H         PUBLIC        _delay_ms
+  C:0CB7H         PUBLIC        _delay_ms
   C:0C94H         PUBLIC        _delay_us
   -------         PROC          L?0011
   -------         ENDPROC       L?0011
   -------         PROC          _DELAY_US
   D:0006H         SYMBOL        us
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/26/2018  20:39:27  PAGE 11
+
+
   C:0C94H         LINE#         37
   C:0C94H         LINE#         38
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  07/18/2018  22:48:56  PAGE 11
-
-
   C:0C94H         LINE#         40
   C:0C94H         LINE#         41
   C:0C95H         LINE#         42
@@ -613,15 +615,15 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   -------         ENDPROC       _DELAY_US
   -------         PROC          _DELAY_MS
   D:0004H         SYMBOL        ms
-  C:0CA3H         LINE#         49
-  C:0CA7H         LINE#         50
-  C:0CA7H         LINE#         52
-  C:0CA7H         LINE#         53
-  C:0CA7H         LINE#         54
-  C:0CAAH         LINE#         55
-  C:0CAAH         LINE#         56
-  C:0CADH         LINE#         57
-  C:0CB6H         LINE#         58
+  C:0CB7H         LINE#         49
+  C:0CBBH         LINE#         50
+  C:0CBBH         LINE#         52
+  C:0CBBH         LINE#         53
+  C:0CBBH         LINE#         54
+  C:0CBEH         LINE#         55
+  C:0CBEH         LINE#         56
+  C:0CC1H         LINE#         57
+  C:0CCAH         LINE#         58
   -------         ENDPROC       _DELAY_MS
   -------         ENDMOD        HAL_DELAY
 
@@ -642,8 +644,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\exemplo_timer (?C_STARTUP)
   -------         ENDMOD        ?C?UIDIV
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0430H BYTE (52%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0434H BYTE (52%) *
 ******************************************************************************
 
-Program Size: data=40.1 xdata=65 code=1363
+Program Size: data=42.1 xdata=65 code=1367
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,7 +1,7 @@
 import serial
 
-Port = "COM5"
-baudrate = 9600
+Port = "COM4"
+baudrate = 115200
 conexao = serial.Serial(Port, baudrate);
 rx = 0;
 estado_led = 0;

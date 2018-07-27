@@ -1,4 +1,4 @@
-C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/18/2018 22:50:00 PAGE 1   
+C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/26/2018 20:49:13 PAGE 1   
 
 
 C51 COMPILER V9.57.0.0, COMPILATION OF MODULE EXEMPLO_TIMER
@@ -10,6 +10,8 @@ COMPILER INVOKED BY: D:\Programas\Keil C51\C51\BIN\C51.EXE exemplo_timer.c OPTIM
                     -.obj)
 
 line level    source
+
+*** WARNING C500 IN LINE 1 OF exemplo_timer.c: LICENSE ERROR (R230(2): CONNECT TO UVISION KERNEL FAILED)
 
    1          #include<Nordic\reg24le1.h>
    2          #include<stdint.h>
@@ -61,9 +63,9 @@ line level    source
   48          
   49          void avalia_comando(){
   50   1          switch(rx_buf[1]){
-  51   2            case RESET_TIMER:
-C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/18/2018 22:50:00 PAGE 2   
+C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/26/2018 20:49:13 PAGE 2   
 
+  51   2            case RESET_TIMER:
   52   2              timer_count = 0;
   53   2              tempo1 = 0;
   54   2              break;
@@ -125,9 +127,9 @@ line level    source
  110          /********************TIMER*************************/
  111          void TMR0_IRQ(void) interrupt INTERRUPT_TMR0
  112          {
- 113   1        if(!NOVT0)
-C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/18/2018 22:50:00 PAGE 3   
+C51 COMPILER V9.57.0.0   EXEMPLO_TIMER                                                     07/26/2018 20:49:13 PAGE 3   
 
+ 113   1        if(!NOVT0)
  114   1        {
  115   2          timer_count++; // Acumula os tempos
  116   2          if(timer_count >= initial_timer_count){
@@ -141,14 +143,14 @@ line level    source
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    967    ----
+   CODE SIZE        =    971    ----
    CONSTANT SIZE    =      5    ----
    XDATA SIZE       =     65    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     12      21
+   DATA SIZE        =     14      21
    IDATA SIZE       =   ----    ----
    BIT SIZE         =      1    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

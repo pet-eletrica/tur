@@ -36,7 +36,7 @@ void setup(){
 	setup_T0_ticks(6666, 60006);	//Configura o timer como descrito:
 																//a cada 5ms o timer estoura (4.9995)
 																//60 006 vezes ? o maximo que pode repetir este tempo
-																//4.9995 * 60 006 = 300 segundos = 5 minutos
+																//49.995 * 60 006 = 300 segundos = 5 minutos
 	prepare_T0(); //Ativa as interrup??es e deixa o timer pronto para ser iniciado
 
 	//Pisca os Leds Indicando que o Dispositivo foi iniciado

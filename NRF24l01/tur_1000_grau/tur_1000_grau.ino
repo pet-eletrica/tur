@@ -1,7 +1,7 @@
 #include "nrf24le01Module.h"
 #include "led_rgb.h"
 
-#define UART_BAUDRATE       9600
+#define UART_BAUDRATE       115200
 
 //Endereços
 #define BROADCAST_ADDRESS '0'
@@ -44,27 +44,27 @@ void loop() {
     tempo1 = host_nrf.rx_buf[2] << 8 | host_nrf.rx_buf[3];
     if (sensor == '1') {
       Serial.print("A: ");
-      Serial.print(tempo1 * 49);
+      Serial.print(tempo1 * 5);
       Serial.println(" ms.\t");
     }
      else if (sensor == '2') {
       Serial.print("b: ");
-      Serial.print(tempo1 * 49);
+      Serial.print(tempo1 * 5);
       Serial.println(" ms.\t");
     }
      else if (sensor == '3') {
       Serial.print("C: ");
-      Serial.print(tempo1 * 49);
+      Serial.print(tempo1 * 5);
       Serial.println(" ms.\t");
     }
      else if (sensor == '4') {
       Serial.print("D: ");
-      Serial.print(tempo1 * 49);
+      Serial.print(tempo1 * 5);
       Serial.println(" ms.\t");
     }
      else if (sensor == '5') {
       Serial.print("E: ");
-      Serial.print(tempo1 * 49);
+      Serial.print(tempo1 * 5);
       Serial.println(" ms.\t");
     }
   }
