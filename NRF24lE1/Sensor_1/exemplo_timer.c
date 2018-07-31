@@ -17,9 +17,12 @@
 #define RESET_TIMER 'A'
 
 //Pinos
-#define LED1 P03
-#define LED P06
+#define LED_SISTEMA_ON P03
+#define LED_ENVIO P06
+#define LED_TIMER_ON P12
+#define LED_AJUSTE P13
 #define SENSOR P14
+
 
 //Vari�veis
 uint8_t btn_passou = 0;
@@ -40,10 +43,10 @@ void setup(){
 	prepare_T0(); //Ativa as interrup��es e deixa o timer pronto para ser iniciado
 
 	//Pisca os Leds Indicando que o Dispositivo foi iniciado
-	LED = 1; delay_ms(100); LED = 0; delay_ms(100);
-	LED = 1; delay_ms(100); LED = 0; delay_ms(100);
+	LED_ENVIO = 1; delay_ms(100); LED_ENVIO = 0; delay_ms(100);
+	LED_ENVIO = 1; delay_ms(100); LED_ENVIO = 0; delay_ms(100);
 	//Manda uma msg indicando que esta ON
-	LED1 = 1;
+	LED_SISTEMA_ON = 1;
 }
 
 void avalia_comando(){
@@ -51,6 +54,7 @@ void avalia_comando(){
 			case RESET_TIMER:
 				timer_count = 0;
 				tempo1 = 0;
+				LED_TIMER_ON = 1;
 				break;
 			case INICIA_TIMER_CMD:
 				timer_count = 0;
@@ -61,11 +65,13 @@ void avalia_comando(){
 				tx_buf[1] = 'o';
 				tx_buf[2] = 'n';
 				TX_Mode_NOACK(3);
+				LED_TIMER_ON = 1;
 				break;
 			case DESLIGA_TIMER_CMD:
 				TR0=0; // Timer0 --> STOP
 				tempo1 = 0;
 				timer_count = 0;
+				LED_TIMER_ON = 1;
 				break;
 			case LER_COUNTER_CMD:
 				delay_ms(100);
@@ -74,7 +80,7 @@ void avalia_comando(){
 				tx_buf[2] = (uint8_t) (tempo1 >> 8); //msb
 				tx_buf[3] = (uint8_t) (tempo1); //lsb
 				TX_Mode_NOACK(4);
-				LED=!LED;
+				LED_ENVIO=!LED_ENVIO;
 				break;
 			case PING_ECO_CMD:
 				tx_buf[0] = MY_SUB_ADDRESS;
@@ -91,6 +97,7 @@ void avalia_comando(){
 void main(){
 	setup();
 	while(1){
+		LED_AJUSTE = SENSOR;
 		if(!SENSOR){
 			btn_passou = 1;
 			tempo1 = timer_count;
