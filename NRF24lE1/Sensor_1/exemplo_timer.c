@@ -18,7 +18,7 @@
 
 //Pinos
 #define LED_SISTEMA_ON P03
-#define LED_ENVIO P06
+#define LED_ENVIO P05
 #define LED_TIMER_ON P12
 #define LED_AJUSTE P13
 #define SENSOR P14
@@ -30,8 +30,8 @@ uint16_t tempo1 = 0;
 uint8_t i = 0;
 
 void setup(){
-	P0DIR = 0xB7; //1011 0111 - Pinos do Port0
-	P1DIR = 0xFF; //1111 1111 - Pinos do Port1
+	P0DIR = 0xD7; //1101 0111 - Pinos do Port0
+	P1DIR = 0xF3; //1111 0011 - Pinos do Port1
 
 	rf_init(ADDR_HOST,ADDR_HOST, 92,
 				  RF_DATA_RATE_2Mbps, RF_TX_POWER_0dBm); //Configura a rede RF
@@ -54,7 +54,7 @@ void avalia_comando(){
 			case RESET_TIMER:
 				timer_count = 0;
 				tempo1 = 0;
-				LED_TIMER_ON = 1;
+				LED_TIMER_ON = 0;
 				break;
 			case INICIA_TIMER_CMD:
 				timer_count = 0;
@@ -71,7 +71,7 @@ void avalia_comando(){
 				TR0=0; // Timer0 --> STOP
 				tempo1 = 0;
 				timer_count = 0;
-				LED_TIMER_ON = 1;
+				LED_TIMER_ON = 0;
 				break;
 			case LER_COUNTER_CMD:
 				delay_ms(100);
@@ -98,7 +98,7 @@ void main(){
 	setup();
 	while(1){
 		LED_AJUSTE = SENSOR;
-		if(!SENSOR){
+		if(SENSOR){
 			btn_passou = 1;
 			tempo1 = timer_count;
 		}
