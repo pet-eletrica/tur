@@ -24,6 +24,6 @@ while True:
 
     else:
         print'comando nao reconhecido'
-        
+
     print rx
 conexao.close()
