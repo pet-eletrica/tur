@@ -43,29 +43,24 @@ void loop() {
     uint8_t sensor = host_nrf.rx_buf[0]; //ql sensor enviou a msg
     tempo1 = host_nrf.rx_buf[2] << 8 | host_nrf.rx_buf[3];
     if (sensor == '1') {
-      Serial.print("A: ");
-      Serial.print(tempo1 * 5);
-      Serial.println(" ms.\t");
+      Serial.print("A");
+      Serial.println(tempo1);
     }
      else if (sensor == '2') {
-      Serial.print("b: ");
-      Serial.print(tempo1 * 5);
-      Serial.println(" ms.\t");
+      Serial.print("B");
+      Serial.println(tempo1);
     }
      else if (sensor == '3') {
-      Serial.print("C: ");
-      Serial.print(tempo1 * 5);
-      Serial.println(" ms.\t");
+      Serial.print("C");
+      Serial.println(tempo1);
     }
      else if (sensor == '4') {
-      Serial.print("D: ");
-      Serial.print(tempo1 * 5);
-      Serial.println(" ms.\t");
+      Serial.print("D");
+      Serial.println(tempo1);
     }
      else if (sensor == '5') {
-      Serial.print("E: ");
-      Serial.print(tempo1 * 5);
-      Serial.println(" ms.\t");
+      Serial.print("E");
+      Serial.println(tempo1);
     }
   }
 
@@ -76,8 +71,8 @@ void loop() {
     host_nrf.tx_buf[1] = Serial.read();
     host_nrf.TX_Mode_NOACK(2);
   }
-    if (host_nrf.tx_buf[1] == 'I') {
-      if (actual_millis - requisitou_dado_millis > 125) {
+    if (host_nrf.tx_buf[1] == 'I' ) {
+      if (actual_millis - requisitou_dado_millis > 105) {
         requisitou_dado_millis = actual_millis;
         if (requisitando_de == 1) {
           host_nrf.tx_buf[0] = '1'; //trocar para ler cada sensor
@@ -117,7 +112,7 @@ void loop() {
       }
     }
 
-  if (actual_millis - received_millis  > 250) {
+  if (actual_millis - received_millis  > 200) {
     status_led.apagar();
   }
 }
