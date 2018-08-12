@@ -1,3 +1,4 @@
+
 #include "nrf24le01Module.h"
 #include "led_rgb.h"
 
@@ -16,8 +17,7 @@
 #define RESET_TIMER 'A'
 
 //Variáveis
-uint16_t tempo1 = 0;
-uint16_t tempo2 = 0;
+uint16_t tempo = 0;
 uint8_t requisitando_de = 1;
 
 led_rgb status_led(7, 6, 5); //R_pin,G_pin,B_pin
@@ -41,28 +41,16 @@ void loop() {
     host_nrf.newPayload = 0;
     status_led.acender(LED_COLOR_AQUA);
     uint8_t sensor = host_nrf.rx_buf[0]; //ql sensor enviou a msg
-    tempo1 = host_nrf.rx_buf[2] << 8 | host_nrf.rx_buf[3];
-    if (sensor == '1') {
-      Serial.print("A");
-      Serial.println(tempo1);
-    }
-     else if (sensor == '2') {
-      Serial.print("B");
-      Serial.println(tempo1);
-    }
-     else if (sensor == '3') {
-      Serial.print("C");
-      Serial.println(tempo1);
-    }
-     else if (sensor == '4') {
-      Serial.print("D");
-      Serial.println(tempo1);
-    }
-     else if (sensor == '5') {
-      Serial.print("E");
-      Serial.println(tempo1);
-    }
-  }
+    tempo = host_nrf.rx_buf[2] << 8 | host_nrf.rx_buf[3];
+    //Serial.print(sensor); // envia um valor inteiro 1 ou 2 ou 3 ... 
+   
+    Serial.write(sensor);
+    //Serial.print(tempo);
+    //Serial.print(tempo);
+    Serial.write((tempo>>8));
+    Serial.write((0x00FF&tempo));
+    
+      }
 
   if (Serial.available()) {
     sent_millis = actual_millis;
@@ -71,46 +59,46 @@ void loop() {
     host_nrf.tx_buf[1] = Serial.read();
     host_nrf.TX_Mode_NOACK(2);
   }
-    if (host_nrf.tx_buf[1] == 'I' ) {
-      if (actual_millis - requisitou_dado_millis > 105) {
-        requisitou_dado_millis = actual_millis;
-        if (requisitando_de == 1) {
-          host_nrf.tx_buf[0] = '1'; //trocar para ler cada sensor
-          host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-          host_nrf.TX_Mode_NOACK(2);
-          requisitando_de = 2;
-          host_nrf.tx_buf[1] = 'I';
-        }
-       else if (requisitando_de == 2) {
-          host_nrf.tx_buf[0] = '2'; //trocar para ler cada sensor
-          host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-          host_nrf.TX_Mode_NOACK(2);
-          requisitando_de = 3;
-          host_nrf.tx_buf[1] = 'I';
-        }
-        else if (requisitando_de == 3) {
-          host_nrf.tx_buf[0] = '3'; //trocar para ler cada sensor
-          host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-          host_nrf.TX_Mode_NOACK(2);
-          requisitando_de = 4;
-          host_nrf.tx_buf[1] = 'I';
-        }
-        else if (requisitando_de == 4) {
-          host_nrf.tx_buf[0] = '4'; //trocar para ler cada sensor
-          host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-          host_nrf.TX_Mode_NOACK(2);
-          requisitando_de = 5;
-          host_nrf.tx_buf[1] = 'I';
-        }
-        else if (requisitando_de == 5) {
-          host_nrf.tx_buf[0] = '5'; //trocar para ler cada sensor
-          host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-          host_nrf.TX_Mode_NOACK(2);
-          requisitando_de = 1;
-          host_nrf.tx_buf[1] = 'I';
-        }
+  if (host_nrf.tx_buf[1] == 'I' ) {
+    if (actual_millis - requisitou_dado_millis > 105) {
+      requisitou_dado_millis = actual_millis;
+      if (requisitando_de == 1) {
+        host_nrf.tx_buf[0] = '1'; //trocar para ler cada sensor
+        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+        host_nrf.TX_Mode_NOACK(2);
+        requisitando_de = 2;
+        host_nrf.tx_buf[1] = 'I';
+      }
+      else if (requisitando_de == 2) {
+        host_nrf.tx_buf[0] = '2'; //trocar para ler cada sensor
+        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+        host_nrf.TX_Mode_NOACK(2);
+        requisitando_de = 3;
+        host_nrf.tx_buf[1] = 'I';
+      }
+      else if (requisitando_de == 3) {
+        host_nrf.tx_buf[0] = '3'; //trocar para ler cada sensor
+        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+        host_nrf.TX_Mode_NOACK(2);
+        requisitando_de = 4;
+        host_nrf.tx_buf[1] = 'I';
+      }
+      else if (requisitando_de == 4) {
+        host_nrf.tx_buf[0] = '4'; //trocar para ler cada sensor
+        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+        host_nrf.TX_Mode_NOACK(2);
+        requisitando_de = 5;
+        host_nrf.tx_buf[1] = 'I';
+      }
+      else if (requisitando_de == 5) {
+        host_nrf.tx_buf[0] = '5'; //trocar para ler cada sensor
+        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+        host_nrf.TX_Mode_NOACK(2);
+        requisitando_de = 1;
+        host_nrf.tx_buf[1] = 'I';
       }
     }
+  }
 
   if (actual_millis - received_millis  > 200) {
     status_led.apagar();
