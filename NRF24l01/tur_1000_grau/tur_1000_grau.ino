@@ -42,15 +42,39 @@ void loop() {
     status_led.acender(LED_COLOR_AQUA);
     uint8_t sensor = host_nrf.rx_buf[0]; //ql sensor enviou a msg
     tempo = host_nrf.rx_buf[2] << 8 | host_nrf.rx_buf[3];
-    //Serial.print(sensor); // envia um valor inteiro 1 ou 2 ou 3 ... 
-   
-    Serial.write(sensor);
-    //Serial.print(tempo);
-    //Serial.print(tempo);
-    Serial.write((tempo>>8));
-    Serial.write((0x00FF&tempo));
-    
-      }
+    //Serial.print(sensor); // envia um valor inteiro 1 ou 2 ou 3 ...
+    if (sensor == '1') {
+      Serial.write(sensor);
+      Serial.write((tempo >> 8));
+      Serial.write((0x00FF & tempo));
+      //Serial.print(sensor);
+      //Serial.print(tempo);
+    }if (sensor == '2') {
+      Serial.write(sensor);
+      Serial.write((tempo >> 8));
+      Serial.write((0x00FF & tempo));
+      //Serial.print(sensor);
+      //Serial.print(tempo);
+    }if (sensor == '3') {
+      Serial.write(sensor);
+      Serial.write((tempo >> 8));
+      Serial.write((0x00FF & tempo));
+      //Serial.print(sensor);
+      //Serial.println(tempo);
+      }if (sensor == '4') {
+      Serial.write(sensor);
+      Serial.write((tempo >> 8));
+      Serial.write((0x00FF & tempo));
+      //Serial.print(sensor);
+      //Serial.println(tempo);
+    }if (sensor == '5') {
+      Serial.write(sensor);
+      Serial.write((tempo >> 8));
+      Serial.write((0x00FF & tempo));
+      //Serial.print(sensor);
+      //Serial.println(tempo);
+    }
+  }
 
   if (Serial.available()) {
     sent_millis = actual_millis;
