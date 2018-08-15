@@ -54,27 +54,25 @@ void avalia_comando(){
 			case RESET_TIMER:
 				timer_count = 0;
 				tempo1 = 0;
-				LED_TIMER_ON = 0;
+				LED_TIMER_ON = 0; //LED Amarelo off
 				break;
 			case INICIA_TIMER_CMD:
 				timer_count = 0;
 				tempo1 = 0;
 				TR0=1; // Timer0 --> RUN
-				delay_ms(100);
 				tx_buf[0] = MY_SUB_ADDRESS;
 				tx_buf[1] = 'o';
 				tx_buf[2] = 'n';
 				TX_Mode_NOACK(3);
-				LED_TIMER_ON = 1;
+				LED_TIMER_ON = 1; // LED Amarelo ON
 				break;
 			case DESLIGA_TIMER_CMD:
 				TR0=0; // Timer0 --> STOP
 				tempo1 = 0;
 				timer_count = 0;
-				LED_TIMER_ON = 0;
+				LED_TIMER_ON = 0; // LED Amarelo OFF
 				break;
 			case LER_COUNTER_CMD:
-				delay_ms(100);
 				tx_buf[0] = MY_SUB_ADDRESS;
 				tx_buf[1] = LER_COUNTER_CMD;
 				tx_buf[2] = (uint8_t) (tempo1 >> 8); //msb

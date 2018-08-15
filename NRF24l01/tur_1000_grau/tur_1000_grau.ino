@@ -18,7 +18,7 @@
 
 //Variáveis
 uint16_t tempo = 0;
-uint8_t requisitando_de = 1;
+uint8_t tempos[10];
 
 led_rgb status_led(7, 6, 5); //R_pin,G_pin,B_pin
 nrf24le01Module host_nrf(2, 4, 3); //IRQ, CE, CSN
@@ -40,95 +40,91 @@ void loop() {
     received_millis = actual_millis;
     host_nrf.newPayload = 0;
     status_led.acender(LED_COLOR_AQUA);
-    uint8_t sensor = host_nrf.rx_buf[0]; //ql sensor enviou a msg
-    tempo = host_nrf.rx_buf[2] << 8 | host_nrf.rx_buf[3];
     //Serial.print(sensor); // envia um valor inteiro 1 ou 2 ou 3 ...
-    if (sensor == '1') {
-      Serial.write(sensor);
-      Serial.write((tempo >> 8));
-      Serial.write((0x00FF & tempo));
-      //Serial.print(sensor);
-      //Serial.print(tempo);
-    }if (sensor == '2') {
-      Serial.write(sensor);
-      Serial.write((tempo >> 8));
-      Serial.write((0x00FF & tempo));
-      //Serial.print(sensor);
-      //Serial.print(tempo);
-    }if (sensor == '3') {
-      Serial.write(sensor);
-      Serial.write((tempo >> 8));
-      Serial.write((0x00FF & tempo));
-      //Serial.print(sensor);
-      //Serial.println(tempo);
-      }if (sensor == '4') {
-      Serial.write(sensor);
-      Serial.write((tempo >> 8));
-      Serial.write((0x00FF & tempo));
-      //Serial.print(sensor);
-      //Serial.println(tempo);
-    }if (sensor == '5') {
-      Serial.write(sensor);
-      Serial.write((tempo >> 8));
-      Serial.write((0x00FF & tempo));
-      //Serial.print(sensor);
-      //Serial.println(tempo);
-    }
+    //Serial.print(tempo);
+    //Serial.print(tempo);
   }
 
   if (Serial.available()) {
-    sent_millis = actual_millis;
     status_led.acender(LED_COLOR_YELLOW);
     host_nrf.tx_buf[0] = BROADCAST_ADDRESS;
-    host_nrf.tx_buf[1] = Serial.read();
+    host_nrf.tx_buf[1] = Serial.read(); // 
     host_nrf.TX_Mode_NOACK(2);
+    delay(50);
   }
-  if (host_nrf.tx_buf[1] == 'I' ) {
-    if (actual_millis - requisitou_dado_millis > 105) {
-      requisitou_dado_millis = actual_millis;
-      if (requisitando_de == 1) {
-        host_nrf.tx_buf[0] = '1'; //trocar para ler cada sensor
-        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-        host_nrf.TX_Mode_NOACK(2);
-        requisitando_de = 2;
-        host_nrf.tx_buf[1] = 'I';
+  while( actual_millis - sent_millis > 100 )
+    {
+    if (host_nrf.tx_buf[1] == 'I' ) { // se caso serial read for = 1
+      //Leitura do sensor 1
+      host_nrf.tx_buf[0] = '1'; //trocar para ler cada sensor
+      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+      host_nrf.TX_Mode_NOACK(2);
+      if (host_nrf.RX_OK)
+      {
+        status_led.apagar();
+        status_led.acender(LED_COLOR_BLUE);
+        tempos[0] = host_nrf.rx_buf[2];
+        tempos[1] = host_nrf.rx_buf[3];
+        tempo = (tempos[0] * 256) + tempos[1];
+        Serial.println(tempo); // convertido
+        Serial.println(tempos[0]); // HIGH Tempo 
+        Serial.println(tempos[1]); // LOW Tempo
+        Serial.println(host_nrf.rx_buf[0]); // Sensor
       }
-      else if (requisitando_de == 2) {
-        host_nrf.tx_buf[0] = '2'; //trocar para ler cada sensor
-        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-        host_nrf.TX_Mode_NOACK(2);
-        requisitando_de = 3;
-        host_nrf.tx_buf[1] = 'I';
+      //Leitura do sensor 2
+      host_nrf.tx_buf[0] = '2'; //trocar para ler cada sensor
+      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+      host_nrf.TX_Mode_NOACK(2);
+      if (host_nrf.RX_OK)
+      {
+        status_led.apagar();
+        status_led.acender(LED_COLOR_RED);
+        tempos[2] = host_nrf.rx_buf[2];
+        tempos[3] = host_nrf.rx_buf[3];
+
+        Serial.print(tempos[2]);
+        Serial.print(tempos[3]);
+        Serial.print(host_nrf.rx_buf[0]);
       }
-      else if (requisitando_de == 3) {
-        host_nrf.tx_buf[0] = '3'; //trocar para ler cada sensor
-        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-        host_nrf.TX_Mode_NOACK(2);
-        requisitando_de = 4;
-        host_nrf.tx_buf[1] = 'I';
+      //Leitura do sensor 3
+      host_nrf.tx_buf[0] = '3'; //trocar para ler cada sensor
+      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+      host_nrf.TX_Mode_NOACK(2);
+      if (host_nrf.RX_OK)
+      { status_led.apagar();
+        status_led.acender(LED_COLOR_GREEN);
+        tempos[4] = host_nrf.rx_buf[1];
+        tempos[5] = host_nrf.rx_buf[2];
+        Serial.print(tempos[4]);
+        Serial.print(tempos[5]);
       }
-      else if (requisitando_de == 4) {
-        host_nrf.tx_buf[0] = '4'; //trocar para ler cada sensor
-        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-        host_nrf.TX_Mode_NOACK(2);
-        requisitando_de = 5;
-        host_nrf.tx_buf[1] = 'I';
+      //Leitura do sensor 4
+      host_nrf.tx_buf[0] = '4'; //trocar para ler cada sensor
+      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+      host_nrf.TX_Mode_NOACK(2);
+      if (host_nrf.RX_OK)
+      {
+        status_led.apagar();
+        tempos[6] = host_nrf.rx_buf[1];
+        tempos[7] = host_nrf.rx_buf[2];
+        Serial.print(tempos[6]);
+        Serial.print(tempos[7]);
       }
-      else if (requisitando_de == 5) {
-        host_nrf.tx_buf[0] = '5'; //trocar para ler cada sensor
-        host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-        host_nrf.TX_Mode_NOACK(2);
-        requisitando_de = 1;
-        host_nrf.tx_buf[1] = 'I';
+      //Leitura do sensor 5
+      host_nrf.tx_buf[0] = '5'; //trocar para ler cada sensor
+      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+      host_nrf.TX_Mode_NOACK(2);
+      if (host_nrf.RX_OK)
+      {
+        tempos[8] = host_nrf.rx_buf[1];
+        tempos[9] = host_nrf.rx_buf[2];
+        Serial.print(tempos[8]);
+        Serial.print(tempos[9]);
       }
     }
-  }
-
-  if (actual_millis - received_millis  > 200) {
-    status_led.apagar();
+    sent_millis = actual_millis;
   }
 }
-
 void rf_interrupt() {
   host_nrf.RF_IRQ();
 }

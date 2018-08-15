@@ -60,7 +60,6 @@ void avalia_comando(){
 				timer_count = 0;
 				tempo1 = 0;
 				TR0=1; // Timer0 --> RUN
-				delay_ms(100);
 				tx_buf[0] = MY_SUB_ADDRESS;
 				tx_buf[1] = 'o';
 				tx_buf[2] = 'n';
@@ -74,7 +73,6 @@ void avalia_comando(){
 				LED_TIMER_ON = 0;
 				break;
 			case LER_COUNTER_CMD:
-				delay_ms(100);
 				tx_buf[0] = MY_SUB_ADDRESS;
 				tx_buf[1] = LER_COUNTER_CMD;
 				tx_buf[2] = (uint8_t) (tempo1 >> 8); //msb
