@@ -17,13 +17,11 @@
 #define RESET_TIMER 'A'
 
 //Variáveis
-uint16_t tempo = 0;
-uint8_t tempos[10];
+uint8_t sensor = '1';
+uint8_t tempos[2];
 
 led_rgb status_led(7, 6, 5); //R_pin,G_pin,B_pin
 nrf24le01Module host_nrf(2, 4, 3); //IRQ, CE, CSN
-
-char serialOp;
 
 unsigned long actual_millis, received_millis, sent_millis, requisitou_dado_millis, momento_para_req_s2;
 void setup() {
@@ -34,95 +32,129 @@ void setup() {
   piscas_iniciais_led();
 }
 
-void loop() {
+void loop()
+{
+  int dado;
   actual_millis = millis();
-  if (host_nrf.newPayload) {
+  if (host_nrf.newPayload)
+  {
     received_millis = actual_millis;
     host_nrf.newPayload = 0;
-    status_led.acender(LED_COLOR_AQUA);
+    status_led.apagar();
     //Serial.print(sensor); // envia um valor inteiro 1 ou 2 ou 3 ...
     //Serial.print(tempo);
     //Serial.print(tempo);
   }
+  dado = 0;
+  if (Serial.available())
+    dado = Serial.read();
+  switch (dado)
+  {
+    case 'I':   status_led.acender(LED_COLOR_GREEN);
+      host_nrf.tx_buf[0] = BROADCAST_ADDRESS;
+      host_nrf.tx_buf[1] = dado;
+      host_nrf.TX_Mode_NOACK(2);
+      break;
 
-  if (Serial.available()) {
-    status_led.acender(LED_COLOR_YELLOW);
-    host_nrf.tx_buf[0] = BROADCAST_ADDRESS;
-    host_nrf.tx_buf[1] = Serial.read(); // 
-    host_nrf.TX_Mode_NOACK(2);
-    delay(50);
-  }
-  while( actual_millis - sent_millis > 100 )
-    {
-    if (host_nrf.tx_buf[1] == 'I' ) { // se caso serial read for = 1
-      //Leitura do sensor 1
-      host_nrf.tx_buf[0] = '1'; //trocar para ler cada sensor
-      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
+    case 'A':   status_led.acender(LED_COLOR_RED);
+      host_nrf.tx_buf[0] = BROADCAST_ADDRESS;
+      host_nrf.tx_buf[1] = dado;
       host_nrf.TX_Mode_NOACK(2);
-      if (host_nrf.RX_OK)
-      {
-        status_led.apagar();
-        status_led.acender(LED_COLOR_BLUE);
-        tempos[0] = host_nrf.rx_buf[2];
-        tempos[1] = host_nrf.rx_buf[3];
-        tempo = (tempos[0] * 256) + tempos[1];
-        Serial.println(tempo); // convertido
-        Serial.println(tempos[0]); // HIGH Tempo 
-        Serial.println(tempos[1]); // LOW Tempo
-        Serial.println(host_nrf.rx_buf[0]); // Sensor
-      }
-      //Leitura do sensor 2
-      host_nrf.tx_buf[0] = '2'; //trocar para ler cada sensor
-      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-      host_nrf.TX_Mode_NOACK(2);
-      if (host_nrf.RX_OK)
-      {
-        status_led.apagar();
-        status_led.acender(LED_COLOR_RED);
-        tempos[2] = host_nrf.rx_buf[2];
-        tempos[3] = host_nrf.rx_buf[3];
+      break;
 
-        Serial.print(tempos[2]);
-        Serial.print(tempos[3]);
-        Serial.print(host_nrf.rx_buf[0]);
-      }
-      //Leitura do sensor 3
-      host_nrf.tx_buf[0] = '3'; //trocar para ler cada sensor
-      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-      host_nrf.TX_Mode_NOACK(2);
-      if (host_nrf.RX_OK)
-      { status_led.apagar();
-        status_led.acender(LED_COLOR_GREEN);
-        tempos[4] = host_nrf.rx_buf[1];
-        tempos[5] = host_nrf.rx_buf[2];
-        Serial.print(tempos[4]);
-        Serial.print(tempos[5]);
-      }
-      //Leitura do sensor 4
-      host_nrf.tx_buf[0] = '4'; //trocar para ler cada sensor
-      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-      host_nrf.TX_Mode_NOACK(2);
-      if (host_nrf.RX_OK)
+    case 'R':   status_led.acender(LED_COLOR_BLUE);
+      if (sensor == '1')
       {
-        status_led.apagar();
-        tempos[6] = host_nrf.rx_buf[1];
-        tempos[7] = host_nrf.rx_buf[2];
-        Serial.print(tempos[6]);
-        Serial.print(tempos[7]);
+        host_nrf.tx_buf[0] = '1';
+        host_nrf.tx_buf[1] = dado;
+        host_nrf.TX_Mode_NOACK(2);
+        if (host_nrf.RX_OK)
+        {
+          status_led.apagar();
+          status_led.acender(LED_COLOR_BLUE);
+          tempos[0] = host_nrf.rx_buf[2];
+          tempos[1] = host_nrf.rx_buf[3];
+
+          Serial.write(host_nrf.rx_buf[0]); // Sensor
+          Serial.write(tempos[0]); // HIGH Tempo
+          Serial.write(tempos[1]); // LOW Tempo
+        }
+        sensor = '2';
       }
-      //Leitura do sensor 5
-      host_nrf.tx_buf[0] = '5'; //trocar para ler cada sensor
-      host_nrf.tx_buf[1] = LER_COUNTER_CMD;
-      host_nrf.TX_Mode_NOACK(2);
-      if (host_nrf.RX_OK)
+      if ( sensor == '2' )
       {
-        tempos[8] = host_nrf.rx_buf[1];
-        tempos[9] = host_nrf.rx_buf[2];
-        Serial.print(tempos[8]);
-        Serial.print(tempos[9]);
+        host_nrf.tx_buf[0] = '2';
+        host_nrf.tx_buf[1] = dado;
+        host_nrf.TX_Mode_NOACK(2);
+        if (host_nrf.RX_OK)
+        {
+          status_led.apagar();
+          status_led.acender(LED_COLOR_BLUE);
+          tempos[0] = host_nrf.rx_buf[2];
+          tempos[1] = host_nrf.rx_buf[3];
+
+          Serial.write(host_nrf.rx_buf[0]); // Sensor
+          Serial.write(tempos[0]); // HIGH Tempo
+          Serial.write(tempos[1]); // LOW Tempo
+        }
+        sensor = '3';
       }
-    }
-    sent_millis = actual_millis;
+      if ( sensor == '3' )
+      {
+        host_nrf.tx_buf[0] = '3';
+        host_nrf.tx_buf[1] = dado;
+        host_nrf.TX_Mode_NOACK(2);
+        if (host_nrf.RX_OK)
+        {
+          status_led.apagar();
+          status_led.acender(LED_COLOR_BLUE);
+          tempos[0] = host_nrf.rx_buf[2];
+          tempos[1] = host_nrf.rx_buf[3];
+
+          Serial.write(host_nrf.rx_buf[0]); // Sensor
+          Serial.write(tempos[0]); // HIGH Tempo
+          Serial.write(tempos[1]); // LOW Tempo
+        }
+        sensor = '4';
+      }
+      if ( sensor == '4' )
+      {
+        host_nrf.tx_buf[0] = '4';
+        host_nrf.tx_buf[1] = dado;
+        host_nrf.TX_Mode_NOACK(2);
+        if (host_nrf.RX_OK)
+        {
+          status_led.apagar();
+          status_led.acender(LED_COLOR_BLUE);
+          tempos[0] = host_nrf.rx_buf[2];
+          tempos[1] = host_nrf.rx_buf[3];
+
+          Serial.write(host_nrf.rx_buf[0]); // Sensor
+          Serial.write(tempos[0]); // HIGH Tempo
+          Serial.write(tempos[1]); // LOW Tempo
+        }
+        sensor = '5';
+      }
+      if ( sensor == '5' )
+      {
+        host_nrf.tx_buf[0] = '5';
+        host_nrf.tx_buf[1] = dado;
+        host_nrf.TX_Mode_NOACK(2);
+        if (host_nrf.RX_OK)
+        {
+          status_led.apagar();
+          status_led.acender(LED_COLOR_BLUE);
+          tempos[0] = host_nrf.rx_buf[2];
+          tempos[1] = host_nrf.rx_buf[3];
+
+          Serial.write(host_nrf.rx_buf[0]); // SSensor
+          Serial.write(tempos[0]); // HIGH Tempo
+          Serial.write(tempos[1]); // LOW Tempo
+        }
+        sensor = '1';
+      }
+      break;
+    default:    break;
   }
 }
 void rf_interrupt() {

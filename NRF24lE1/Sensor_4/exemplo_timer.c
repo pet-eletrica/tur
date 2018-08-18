@@ -59,6 +59,7 @@ void avalia_comando(){
 			case INICIA_TIMER_CMD:
 				timer_count = 0;
 				tempo1 = 0;
+				TR0=1; // Timer0 --> RUN
 				tx_buf[0] = MY_SUB_ADDRESS;
 				tx_buf[1] = 'o';
 				tx_buf[2] = 'n';

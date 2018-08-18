@@ -65,10 +65,7 @@ switch (dado)
                 break;
 
     case 'R':   status_led.acender(LED_COLOR_BLUE);
-                if(sensor == 6)
-                  {
-                    sensor = 1 ;
-                  }
+                sensor = '1';
                 host_nrf.tx_buf[0] = sensor;
                 host_nrf.tx_buf[1] = dado;
                 host_nrf.TX_Mode_NOACK(2);
@@ -84,7 +81,6 @@ switch (dado)
                   Serial.write(tempos[1]); // LOW Tempo
               
                     }
-                sensor ++;
                 break;
     default:    break;
   }
